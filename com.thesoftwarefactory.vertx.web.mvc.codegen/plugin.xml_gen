@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package 
+       uri = "http://www.thesoftwarefactory.com/vertx/web/mvc/CodegenDsl" 
+       class = "com.thesoftwarefactory.vertx.web.mvc.codegenDsl.CodegenDslPackage"
+       genModel = "model/generated/CodegenDsl.genmodel" /> 
+	
+  </extension>
+
+
+
+
+</plugin>
