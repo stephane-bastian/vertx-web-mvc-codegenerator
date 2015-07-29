@@ -167,7 +167,7 @@ public class RoutingHelper {
 			for (int i=0; i<jvmExecutable.getParameters().size(); i++) {
 				JvmFormalParameter jvmFormalParameter = jvmExecutable.getParameters().get(i);
 				String parameterName = jvmFormalParameter.getName();
-				String parameterType = jvmFormalParameter.getParameterType().getQualifiedName();
+				String parameterType = jvmFormalParameter.getParameterType().getQualifiedName('.');
 				boolean isParameterDefinedInRoute = false;
 				ParameterDefaultValue parameterDefaultValue = null;
 
