@@ -18,6 +18,7 @@ public class RouteMethodHandler {
 		UKNOWN
 	}
 
+	private List<ParameterExt> methodParameters;
 	private List<ParameterExt> routeParameters;
 	private List<ParameterExt> optionalRouteParameters;
 	private List<ParameterExt> constructorParameters;
@@ -43,9 +44,16 @@ public class RouteMethodHandler {
 		this.method = RoutingHelper.getMethod(route.getHandler(), routeHandlerTypeReference);
 	}
 
+	public List<ParameterExt> getMethodParameters() {
+		if (methodParameters==null) {
+			methodParameters = RoutingHelper.getParametersExt(method, route.getHandler().getParameters());
+		}
+		return methodParameters;
+	}
+	
 	public List<ParameterExt> getRouteParameters() {
 		if (routeParameters==null) {
-			routeParameters = RoutingHelper.getParametersExt(method, route.getHandler().getParameters());
+			routeParameters = getMethodParameters().stream().filter(parameter -> parameter.isDefinedInRouteFile()).collect(Collectors.toList());
 		}
 		return routeParameters;
 	}

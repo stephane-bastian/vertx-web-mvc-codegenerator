@@ -62,14 +62,14 @@ class GenerateRoutes {
 						«constructorParameter.generateBindingInfo»
 					«ENDFOR»
 					// action bindings
-					«FOR routeParameter: methodHandler.routeParameters»
+					«FOR routeParameter: methodHandler.methodParameters»
 						«IF routeParameter.isGeneric»
 							private final static Binder<«routeParameter.qualifiedType.ensureBoxedType»> «routeParameter.binderName» = Binders.instance.getBinderByType(new TypeToken<«routeParameter.qualifiedType»>() {}.type());
 						«ELSE»
 							private final static Binder<«routeParameter.qualifiedType.ensureBoxedType»> «routeParameter.binderName» = Binders.instance.getBinderByType(«routeParameter.qualifiedType».class);
 						«ENDIF»
 					«ENDFOR»
-					«FOR routeParameter: methodHandler.routeParameters»
+					«FOR routeParameter: methodHandler.methodParameters»
 						«routeParameter.generateBindingInfo»
 					«ENDFOR»
 					// cache the controller so it's instantiated only once
@@ -95,9 +95,9 @@ class GenerateRoutes {
 						try {
 							«IF methodHandler.type==RouteType.ACTION_RESULT»
 								MvcService.get(context).handle(
-									«generateController(route, methodHandler.routeParameters)», context);
+									«generateController(route, methodHandler)», context);
 							«ELSEIF methodHandler.type==RouteType.COMPLETABLE_FUTURE»
-								«generateController(route, methodHandler.routeParameters)»
+								«generateController(route, methodHandler)»
 									.handler((success, failure) -> {
 										if (success!=null) {
 											MvcService.get(context).handle(success, context);
@@ -107,7 +107,7 @@ class GenerateRoutes {
 										}
 									});
 							«ELSEIF methodHandler.type==RouteType.FUTURE»
-								«generateController(route, methodHandler.routeParameters)»
+								«generateController(route, methodHandler)»
 									.setHandler(res -> {
 										if (res.succeeded()) {
 											MvcService.get(context).handle(res, context);
@@ -196,11 +196,11 @@ class GenerateRoutes {
 		'''
 	}
 	
-	def private String generateController(Route route, List<ParameterExt> routeParameters) {
+	def private String generateController(Route route, RouteMethodHandler routeMethodHandler) {
 		'''
 		getController(context)
 			.«RoutingHelper.getMethodName(route.handler)»(
-				«FOR routeParameter: routeParameters SEPARATOR ', '»
+				«FOR routeParameter: routeMethodHandler.methodParameters SEPARATOR ', '»
 					«routeParameter.binderName».bindFromContext(«routeParameter.bindingInfoName», context)
 				«ENDFOR»
 			)
