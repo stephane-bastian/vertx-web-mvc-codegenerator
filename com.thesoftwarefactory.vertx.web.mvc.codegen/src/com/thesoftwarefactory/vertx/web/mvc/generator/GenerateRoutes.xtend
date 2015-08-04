@@ -92,20 +92,37 @@ class GenerateRoutes {
 
 					@Override
 					public void handle(RoutingContext context) {
-						«IF methodHandler.type==RouteType.ACTION_RESULT»
-							MvcService.get(context).handle(
-								«generateController(route, methodHandler.routeParameters)»,
-								context);
-						«ELSEIF methodHandler.type==RouteType.COMPLETABLE_FUTURE»
-							TODO: handle CompletableFuture
-						«ELSEIF methodHandler.type==RouteType.FUTURE»
-							«generateController(route, methodHandler.routeParameters)»
-								.setHandler(res -> { 
-									MvcService.get(context).handle(res, context);
-								});
-						«ELSE»
-							unsupported type
-						«ENDIF»
+						try {
+							«IF methodHandler.type==RouteType.ACTION_RESULT»
+								MvcService.get(context).handle(
+									«generateController(route, methodHandler.routeParameters)», context);
+							«ELSEIF methodHandler.type==RouteType.COMPLETABLE_FUTURE»
+								«generateController(route, methodHandler.routeParameters)»
+									.handler((success, failure) -> {
+										if (success!=null) {
+											MvcService.get(context).handle(success, context);
+										}
+										else {
+											throw new RuntimeException(t);
+										}
+									});
+							«ELSEIF methodHandler.type==RouteType.FUTURE»
+								«generateController(route, methodHandler.routeParameters)»
+									.setHandler(res -> {
+										if (res.succeeded()) {
+											MvcService.get(context).handle(res, context);
+										}
+										else {
+											throw new RuntimeException(res.cause());
+										}	
+									});
+							«ELSE»
+								unsupported type
+							«ENDIF»
+						}
+						catch (Throwable t) {
+							throw new RuntimeException(t);
+						}
 					}
 				
 				}
