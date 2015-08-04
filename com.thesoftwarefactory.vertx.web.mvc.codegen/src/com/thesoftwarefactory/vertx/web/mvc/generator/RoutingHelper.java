@@ -22,7 +22,7 @@ import com.thesoftwarefactory.vertx.web.mvc.codegenDsl.Route;
 import com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RouteHandler;
 
 public class RoutingHelper {
-
+	
 	private final static Map<String, String> primitiveToBoxedTypes;
 	static {
 		primitiveToBoxedTypes  = new HashMap<>();
@@ -40,8 +40,12 @@ public class RoutingHelper {
 		String result = primitiveToBoxedTypes.get(type);
 		return result==null ? type : result;
 	}
-	
-	public static String getActionName(Route route) {
+
+	public static String getActionHandlerMethodName(Route route) {
+		return getMethodName(route.getHandler()) + "ActionHandler";
+	}
+
+	public static String getActionHandlerClassName(Route route) {
 		return toFirstUpper(getMethodName(route.getHandler())) + "Action";
 	}
 
@@ -124,16 +128,31 @@ public class RoutingHelper {
 		return routeHandler.getName().substring(routeHandler.getName().lastIndexOf('.')+1);
 	}
 
-	public static List<ParameterExt> getMethodParameters(RouteHandler routeHandler, JvmTypeReference routeHandlerType) {
-		List<Parameter> routeParameters = routeHandler.getParameters();
+	public static JvmOperation getMethod(RouteHandler routeHandler, JvmTypeReference routeHandlerType) {
 		String methodName = getMethodName(routeHandler);
 		List<JvmOperation> methods = getMethods(routeHandlerType, methodName);
 		for (JvmOperation method: methods) {
 			if (routeHandler.getParameters().size() <= method.getParameters().size()) {
-				return getParametersExt(method, routeParameters);
+				return method;
 			}
 		}
-		return new ArrayList<ParameterExt>();
+		return null;
+	}
+
+	public final static RouteMethodHandler getMethodHandler(Route route, JvmTypeReferenceBuilder typeReferenceBuilder) {
+		String routeHandlerClassName = RoutingHelper.getClassName(route.getHandler());
+		JvmTypeReference routeHandlerTypeReference = getTypeRef(routeHandlerClassName, typeReferenceBuilder);
+		
+		return new RouteMethodHandler(route, routeHandlerTypeReference);
+	}
+	
+	public static List<ParameterExt> getMethodParameters(RouteHandler routeHandler, JvmTypeReference routeHandlerType) {
+		JvmOperation method = getMethod(routeHandler, routeHandlerType);
+		if (method==null)
+			return new ArrayList<ParameterExt>();
+
+		List<Parameter> routeParameters = routeHandler.getParameters();
+		return getParametersExt(method, routeParameters);
 	}
 
 	public static List<JvmOperation> getMethods(JvmTypeReference typeRef, String methodName) {
@@ -211,11 +230,10 @@ public class RoutingHelper {
 		}
 		return result;
 	}
-	
-	public final static JvmTypeReference getRouteHandlerType(RouteHandler routeHandler, JvmTypeReferenceBuilder jvmTypeReferenceBuilder) {
-		String routeHandlerClassname = getClassName(routeHandler);
+
+	public final static JvmTypeReference getTypeRef(String classname, JvmTypeReferenceBuilder jvmTypeReferenceBuilder) {
 		try {
-			return jvmTypeReferenceBuilder.typeRef(routeHandlerClassname, new JvmTypeReference[0]);
+			return jvmTypeReferenceBuilder.typeRef(classname, new JvmTypeReference[0]);
 		}
 		catch (Throwable t) {
 			return null;

@@ -4,9 +4,10 @@ import org.eclipse.xtext.generator.IFileSystemAccess
 import java.util.Collection
 import org.eclipse.xtext.xbase.jvmmodel.JvmTypeReferenceBuilder 
 import static extension com.thesoftwarefactory.vertx.web.mvc.generator.RoutingHelper.*;
-import java.util.stream.Collectors
 import com.thesoftwarefactory.vertx.web.mvc.codegenDsl.Model
 import com.thesoftwarefactory.vertx.web.mvc.codegenDsl.Route
+import java.util.List
+import com.thesoftwarefactory.vertx.web.mvc.generator.RouteMethodHandler.RouteType
 
 class GenerateRoutes {
 	
@@ -46,30 +47,29 @@ class GenerateRoutes {
 
 		public class «simpleClassName» {
 			«FOR route: routes»
-				«val routeParameters = RoutingHelper::getMethodParameters(route.handler, getRouteHandlerType(route.handler, typeReferenceBuilder))»
-				«val constructorParameters = getConstructorParameters(getRouteHandlerType(route.handler, typeReferenceBuilder))»
+				«val methodHandler = getMethodHandler(route, typeReferenceBuilder)»
 				
-				public static class «route.actionName» implements Handler<RoutingContext> {
+				public static class «route.actionHandlerClassName» implements Handler<RoutingContext> {
 					// constructor bindings
-					«FOR constructorParameter: constructorParameters»
+					«FOR constructorParameter: methodHandler.constructorParameters»
 						«IF constructorParameter.isGeneric»
 							private final static Binder<«constructorParameter.qualifiedType.ensureBoxedType»> «constructorParameter.binderName» = Binders.instance.getBinderByType(new TypeToken<«constructorParameter.qualifiedType»>() {}.type());
 						«ELSE»
 							private final static Binder<«constructorParameter.qualifiedType.ensureBoxedType»> «constructorParameter.binderName» = Binders.instance.getBinderByType(«constructorParameter.qualifiedType».class);
 						«ENDIF»
 					«ENDFOR»
-					«FOR constructorParameter: constructorParameters»
+					«FOR constructorParameter: methodHandler.constructorParameters»
 						«constructorParameter.generateBindingInfo»
 					«ENDFOR»
 					// action bindings
-					«FOR routeParameter: routeParameters»
+					«FOR routeParameter: methodHandler.routeParameters»
 						«IF routeParameter.isGeneric»
 							private final static Binder<«routeParameter.qualifiedType.ensureBoxedType»> «routeParameter.binderName» = Binders.instance.getBinderByType(new TypeToken<«routeParameter.qualifiedType»>() {}.type());
 						«ELSE»
 							private final static Binder<«routeParameter.qualifiedType.ensureBoxedType»> «routeParameter.binderName» = Binders.instance.getBinderByType(«routeParameter.qualifiedType».class);
 						«ENDIF»
 					«ENDFOR»
-					«FOR routeParameter: routeParameters»
+					«FOR routeParameter: methodHandler.routeParameters»
 						«routeParameter.generateBindingInfo»
 					«ENDFOR»
 					// cache the controller so it's instantiated only once
@@ -77,7 +77,7 @@ class GenerateRoutes {
 
 					private «RoutingHelper.getClassName(route.handler)» instantiateController(RoutingContext context) {
 						return new «RoutingHelper.getClassName(route.handler)»(
-									«FOR constructorParameter: constructorParameters SEPARATOR ', '»
+									«FOR constructorParameter: methodHandler.constructorParameters SEPARATOR ', '»
 										«constructorParameter.binderName».bindFromContext(«constructorParameter.bindingInfoName», context)
 									«ENDFOR»
 								);
@@ -92,46 +92,54 @@ class GenerateRoutes {
 
 					@Override
 					public void handle(RoutingContext context) {
-						getController(context)
-							.«RoutingHelper.getMethodName(route.handler)»(
-								«FOR routeParameter: routeParameters SEPARATOR ', '»
-									«routeParameter.binderName».bindFromContext(«routeParameter.bindingInfoName», context)
-								«ENDFOR»
-							)
-							.setHandler(res -> { 
-								MvcService.get(context).handle(res, context);
-							});
+						«IF methodHandler.type==RouteType.ACTION_RESULT»
+							MvcService.get(context).handle(
+								«generateController(route, methodHandler.routeParameters)»,
+								context);
+						«ELSEIF methodHandler.type==RouteType.COMPLETABLE_FUTURE»
+							TODO: handle CompletableFuture
+						«ELSEIF methodHandler.type==RouteType.FUTURE»
+							«generateController(route, methodHandler.routeParameters)»
+								.setHandler(res -> { 
+									MvcService.get(context).handle(res, context);
+								});
+						«ELSE»
+							unsupported type
+						«ENDIF»
 					}
 				
 				}
+				
+				public final static «route.actionHandlerClassName» «route.actionHandlerMethodName»() {
+					return new «route.actionHandlerClassName»();
+				}
+				
 			«ENDFOR»
 			
 			«FOR route: routes»
-				«val routeParameters = RoutingHelper::getMethodParameters(route.handler, getRouteHandlerType(route.handler, typeReferenceBuilder)).stream().filter(parameter | parameter.definedInRouteFile).collect(Collectors.toList())»
-				«val requiredRouteParameters = routeParameters.stream().filter(parameter | !isOptional(parameter)).collect(Collectors.toList())»
-				«val optionalRouteParameters = routeParameters.stream().filter(parameter | isOptional(parameter)).collect(Collectors.toList())»
+				«val methodHandler = getMethodHandler(route, typeReferenceBuilder)»
 				
 				public static class «RoutingHelper.getMethodName(route.handler).toFirstUpper»UriBuilder {
-					«FOR routeParameter: routeParameters»
+					«FOR routeParameter: methodHandler.routeParameters»
 						private «routeParameter.qualifiedType» «routeParameter.name»;
 					«ENDFOR»
 					
-					public «route.uriBuilderClassName»(«FOR routeParameter: requiredRouteParameters SEPARATOR ', '»« routeParameter.qualifiedType» «routeParameter.name»«ENDFOR») {
-						«FOR routeParameter: requiredRouteParameters»
+					public «route.uriBuilderClassName»(«FOR routeParameter: methodHandler.requiredRouteParameters SEPARATOR ', '»« routeParameter.qualifiedType» «routeParameter.name»«ENDFOR») {
+						«FOR routeParameter: methodHandler.requiredRouteParameters»
 							Objects.requireNonNull(«routeParameter.name»);
 						«ENDFOR»
 						
-						«FOR routeParameter: requiredRouteParameters»
+						«FOR routeParameter: methodHandler.requiredRouteParameters»
 							this.«routeParameter.name» = «routeParameter.name»;
 						«ENDFOR»
 					}
 					
 					public String build() {
 						UriBuilder result = new UriBuilder().setPath(path());
-						«FOR routeParameter: routeParameters»
+						«FOR routeParameter: methodHandler.routeParameters»
 							«IF !routeParameter.primitive»
 								if («routeParameter.name»!=null) {
-									«route.actionName».«routeParameter.binderName».bindToUrl(«route.actionName».«routeParameter.bindingInfoName», «routeParameter.name», result);
+									«route.actionHandlerClassName».«routeParameter.binderName».bindToUrl(«route.actionHandlerClassName».«routeParameter.bindingInfoName», «routeParameter.name», result);
 								}
 							«ENDIF»
 						«ENDFOR»
@@ -139,10 +147,10 @@ class GenerateRoutes {
 					}
 					
 					private String path() {
-						return "«route.trimPath»"«FOR routeParameter: routeParameters»«IF route.trimPath.contains("/:" + routeParameter.name)».replace("/:«routeParameter.name»", «routeParameter.name».toString())«ENDIF»«ENDFOR»;
+						return "«route.trimPath»"«FOR routeParameter: methodHandler.routeParameters»«IF route.trimPath.contains("/:" + routeParameter.name)».replace("/:«routeParameter.name»", «routeParameter.name».toString())«ENDIF»«ENDFOR»;
 					}
 					
-					«FOR routeParameter: optionalRouteParameters»
+					«FOR routeParameter: methodHandler.optionalRouteParameters»
 						public «route.uriBuilderClassName» set«routeParameter.name.toFirstUpper»(«routeParameter.qualifiedType» «routeParameter.name») {
 							Objects.requireNonNull(«routeParameter.name»);
 
@@ -155,21 +163,30 @@ class GenerateRoutes {
 			«ENDFOR»
 
 			«FOR route: routes»
-				«val routeParameters = RoutingHelper::getMethodParameters(route.handler, getRouteHandlerType(route.handler, typeReferenceBuilder)).stream().filter(parameter | parameter.definedInRouteFile).collect(Collectors.toList())»
-				«val requiredRouteParameters = routeParameters.stream().filter(parameter | !isOptional(parameter)).collect(Collectors.toList())»
-				«val optionalRouteParameters = routeParameters.stream().filter(parameter | isOptional(parameter)).collect(Collectors.toList())»
-				«IF optionalRouteParameters.size>0»
-					public final static «route.uriBuilderClassName» «RoutingHelper.getMethodName(route.handler)»Url(«FOR routeParameter: requiredRouteParameters SEPARATOR ', '»«routeParameter.qualifiedType» «routeParameter.name»«ENDFOR») {
-						return new «route.uriBuilderClassName»(«FOR routeParameter: requiredRouteParameters SEPARATOR ', '»«routeParameter.name»«ENDFOR»);
+				«val methodHandler = getMethodHandler(route, typeReferenceBuilder)»
+				«IF methodHandler.optionalRouteParameters.size>0»
+					public final static «route.uriBuilderClassName» «RoutingHelper.getMethodName(route.handler)»Url(«FOR routeParameter: methodHandler.requiredRouteParameters SEPARATOR ', '»«routeParameter.qualifiedType» «routeParameter.name»«ENDFOR») {
+						return new «route.uriBuilderClassName»(«FOR routeParameter: methodHandler.requiredRouteParameters SEPARATOR ', '»«routeParameter.name»«ENDFOR»);
 					}
 				«ELSE»
-					public final static String «RoutingHelper.getMethodName(route.handler)»Url(«FOR routeParameter: requiredRouteParameters SEPARATOR ', '»«routeParameter.qualifiedType» «routeParameter.name»«ENDFOR») {
-						return new «route.uriBuilderClassName»(«FOR routeParameter: requiredRouteParameters SEPARATOR ', '»«routeParameter.name»«ENDFOR»).build();
+					public final static String «RoutingHelper.getMethodName(route.handler)»Url(«FOR routeParameter: methodHandler.requiredRouteParameters SEPARATOR ', '»«routeParameter.qualifiedType» «routeParameter.name»«ENDFOR») {
+						return new «route.uriBuilderClassName»(«FOR routeParameter: methodHandler.requiredRouteParameters SEPARATOR ', '»«routeParameter.name»«ENDFOR»).build();
 					}
 				«ENDIF»
 				
 			«ENDFOR»
 		}
+		'''
+	}
+	
+	def private String generateController(Route route, List<ParameterExt> routeParameters) {
+		'''
+		getController(context)
+			.«RoutingHelper.getMethodName(route.handler)»(
+				«FOR routeParameter: routeParameters SEPARATOR ', '»
+					«routeParameter.binderName».bindFromContext(«routeParameter.bindingInfoName», context)
+				«ENDFOR»
+			)
 		'''
 	}
 	

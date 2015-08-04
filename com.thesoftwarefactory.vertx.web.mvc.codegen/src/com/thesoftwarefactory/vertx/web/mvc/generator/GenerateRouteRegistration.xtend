@@ -35,7 +35,7 @@ class GenerateRouteRegistration {
 			
 			public final static void register(Router router) {
 				«FOR route: model.routes»
-					router.«route.routerVerb»("«route.trimPath»").handler(new routes.«RoutingHelper.getClassName(route.handler)».«route.actionName»());
+					router.«route.routerVerb»("«route.trimPath»").handler(routes.«RoutingHelper.getClassName(route.handler)».«route.actionHandlerMethodName»());
 				«ENDFOR»
 			}
 		}
