@@ -6,7 +6,6 @@ import org.eclipse.xtext.xbase.jvmmodel.JvmTypeReferenceBuilder
 import static extension com.thesoftwarefactory.vertx.web.mvc.generator.RoutingHelper.*;
 import com.thesoftwarefactory.vertx.web.mvc.codegenDsl.Model
 import com.thesoftwarefactory.vertx.web.mvc.codegenDsl.Route
-import java.util.List
 import com.thesoftwarefactory.vertx.web.mvc.generator.RouteMethodHandler.RouteType
 
 class GenerateRoutes {
@@ -93,32 +92,8 @@ class GenerateRoutes {
 					@Override
 					public void handle(RoutingContext context) {
 						try {
-							«IF methodHandler.type==RouteType.ACTION_RESULT»
-								MvcService.get(context).handle(
+							MvcService.get(context).handle(
 									«generateController(route, methodHandler)», context);
-							«ELSEIF methodHandler.type==RouteType.COMPLETABLE_FUTURE»
-								«generateController(route, methodHandler)»
-									.handler((success, failure) -> {
-										if (success!=null) {
-											MvcService.get(context).handle(success, context);
-										}
-										else {
-											throw new RuntimeException(t);
-										}
-									});
-							«ELSEIF methodHandler.type==RouteType.FUTURE»
-								«generateController(route, methodHandler)»
-									.setHandler(res -> {
-										if (res.succeeded()) {
-											MvcService.get(context).handle(res, context);
-										}
-										else {
-											throw new RuntimeException(res.cause());
-										}	
-									});
-							«ELSE»
-								unsupported type
-							«ENDIF»
 						}
 						catch (Throwable t) {
 							throw new RuntimeException(t);
