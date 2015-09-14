@@ -1,18 +1,9 @@
 **/*~
 
 com.thesoftwarefactory.vertx.web.mvc.codegen/bin/
-com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/
-com.thesoftwarefactory.vertx.web.mvc.codegen/xtend-gen/
 
 com.thesoftwarefactory.vertx.web.mvc.codegen.sdk/bin/
-com.thesoftwarefactory.vertx.web.mvc.codegen.sdk/src-gen/
-com.thesoftwarefactory.vertx.web.mvc.codegen.sdk/xtend-gen/
 
 com.thesoftwarefactory.vertx.web.mvc.codegen.tests/bin/
-com.thesoftwarefactory.vertx.web.mvc.codegen.tests/src-gen/
-com.thesoftwarefactory.vertx.web.mvc.codegen.tests/xtend-gen/
 
 com.thesoftwarefactory.vertx.web.mvc.codegen.ui/bin/
-com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/
-com.thesoftwarefactory.vertx.web.mvc.codegen.ui/xtend-gen/
-
