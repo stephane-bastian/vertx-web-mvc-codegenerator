@@ -4548,9 +4548,9 @@ rule__RoutePermission__Group__1__Impl
     }
 :
 (
-{ before(grammarAccess.getRoutePermissionAccess().getPermissionAssignment_1()); }
-(rule__RoutePermission__PermissionAssignment_1)
-{ after(grammarAccess.getRoutePermissionAccess().getPermissionAssignment_1()); }
+{ before(grammarAccess.getRoutePermissionAccess().getValueAssignment_1()); }
+(rule__RoutePermission__ValueAssignment_1)
+{ after(grammarAccess.getRoutePermissionAccess().getValueAssignment_1()); }
 )
 
 ;
@@ -4611,9 +4611,9 @@ rule__RouteRole__Group__1__Impl
     }
 :
 (
-{ before(grammarAccess.getRouteRoleAccess().getRoleAssignment_1()); }
-(rule__RouteRole__RoleAssignment_1)
-{ after(grammarAccess.getRouteRoleAccess().getRoleAssignment_1()); }
+{ before(grammarAccess.getRouteRoleAccess().getValueAssignment_1()); }
+(rule__RouteRole__ValueAssignment_1)
+{ after(grammarAccess.getRouteRoleAccess().getValueAssignment_1()); }
 )
 
 ;
@@ -18401,14 +18401,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__RoutePermission__PermissionAssignment_1
+rule__RoutePermission__ValueAssignment_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getRoutePermissionAccess().getPermissionSTRINGTerminalRuleCall_1_0()); }
-	RULE_STRING{ after(grammarAccess.getRoutePermissionAccess().getPermissionSTRINGTerminalRuleCall_1_0()); }
+{ before(grammarAccess.getRoutePermissionAccess().getValueSTRINGTerminalRuleCall_1_0()); }
+	RULE_STRING{ after(grammarAccess.getRoutePermissionAccess().getValueSTRINGTerminalRuleCall_1_0()); }
 )
 
 ;
@@ -18416,14 +18416,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__RouteRole__RoleAssignment_1
+rule__RouteRole__ValueAssignment_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getRouteRoleAccess().getRoleSTRINGTerminalRuleCall_1_0()); }
-	RULE_STRING{ after(grammarAccess.getRouteRoleAccess().getRoleSTRINGTerminalRuleCall_1_0()); }
+{ before(grammarAccess.getRouteRoleAccess().getValueSTRINGTerminalRuleCall_1_0()); }
+	RULE_STRING{ after(grammarAccess.getRouteRoleAccess().getValueSTRINGTerminalRuleCall_1_0()); }
 )
 
 ;

@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.impl.RouteRoleImpl#getRole <em>Role</em>}</li>
+ *   <li>{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.impl.RouteRoleImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
@@ -28,24 +28,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class RouteRoleImpl extends MinimalEObjectImpl.Container implements RouteRole
 {
   /**
-   * The default value of the '{@link #getRole() <em>Role</em>}' attribute.
+   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRole()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected static final String ROLE_EDEFAULT = null;
+  protected static final String VALUE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getRole() <em>Role</em>}' attribute.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRole()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected String role = ROLE_EDEFAULT;
+  protected String value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,9 +73,9 @@ public class RouteRoleImpl extends MinimalEObjectImpl.Container implements Route
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getRole()
+  public String getValue()
   {
-    return role;
+    return value;
   }
 
   /**
@@ -83,12 +83,12 @@ public class RouteRoleImpl extends MinimalEObjectImpl.Container implements Route
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRole(String newRole)
+  public void setValue(String newValue)
   {
-    String oldRole = role;
-    role = newRole;
+    String oldValue = value;
+    value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, CodegenDslPackage.ROUTE_ROLE__ROLE, oldRole, role));
+      eNotify(new ENotificationImpl(this, Notification.SET, CodegenDslPackage.ROUTE_ROLE__VALUE, oldValue, value));
   }
 
   /**
@@ -101,8 +101,8 @@ public class RouteRoleImpl extends MinimalEObjectImpl.Container implements Route
   {
     switch (featureID)
     {
-      case CodegenDslPackage.ROUTE_ROLE__ROLE:
-        return getRole();
+      case CodegenDslPackage.ROUTE_ROLE__VALUE:
+        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -117,8 +117,8 @@ public class RouteRoleImpl extends MinimalEObjectImpl.Container implements Route
   {
     switch (featureID)
     {
-      case CodegenDslPackage.ROUTE_ROLE__ROLE:
-        setRole((String)newValue);
+      case CodegenDslPackage.ROUTE_ROLE__VALUE:
+        setValue((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -134,8 +134,8 @@ public class RouteRoleImpl extends MinimalEObjectImpl.Container implements Route
   {
     switch (featureID)
     {
-      case CodegenDslPackage.ROUTE_ROLE__ROLE:
-        setRole(ROLE_EDEFAULT);
+      case CodegenDslPackage.ROUTE_ROLE__VALUE:
+        setValue(VALUE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -151,8 +151,8 @@ public class RouteRoleImpl extends MinimalEObjectImpl.Container implements Route
   {
     switch (featureID)
     {
-      case CodegenDslPackage.ROUTE_ROLE__ROLE:
-        return ROLE_EDEFAULT == null ? role != null : !ROLE_EDEFAULT.equals(role);
+      case CodegenDslPackage.ROUTE_ROLE__VALUE:
+        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
   }
@@ -168,8 +168,8 @@ public class RouteRoleImpl extends MinimalEObjectImpl.Container implements Route
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (role: ");
-    result.append(role);
+    result.append(" (value: ");
+    result.append(value);
     result.append(')');
     return result.toString();
   }

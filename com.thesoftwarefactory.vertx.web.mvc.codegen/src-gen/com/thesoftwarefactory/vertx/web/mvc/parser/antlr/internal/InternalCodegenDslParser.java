@@ -1509,21 +1509,21 @@ public class InternalCodegenDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRoutePermission"
-    // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:546:1: ruleRoutePermission returns [EObject current=null] : (otherlv_0= 'PERMISSION' ( (lv_permission_1_0= RULE_STRING ) ) ) ;
+    // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:546:1: ruleRoutePermission returns [EObject current=null] : (otherlv_0= 'PERMISSION' ( (lv_value_1_0= RULE_STRING ) ) ) ;
     public final EObject ruleRoutePermission() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token lv_permission_1_0=null;
+        Token lv_value_1_0=null;
 
          enterRule(); 
             
         try {
-            // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:549:28: ( (otherlv_0= 'PERMISSION' ( (lv_permission_1_0= RULE_STRING ) ) ) )
-            // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:550:1: (otherlv_0= 'PERMISSION' ( (lv_permission_1_0= RULE_STRING ) ) )
+            // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:549:28: ( (otherlv_0= 'PERMISSION' ( (lv_value_1_0= RULE_STRING ) ) ) )
+            // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:550:1: (otherlv_0= 'PERMISSION' ( (lv_value_1_0= RULE_STRING ) ) )
             {
-            // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:550:1: (otherlv_0= 'PERMISSION' ( (lv_permission_1_0= RULE_STRING ) ) )
-            // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:550:3: otherlv_0= 'PERMISSION' ( (lv_permission_1_0= RULE_STRING ) )
+            // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:550:1: (otherlv_0= 'PERMISSION' ( (lv_value_1_0= RULE_STRING ) ) )
+            // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:550:3: otherlv_0= 'PERMISSION' ( (lv_value_1_0= RULE_STRING ) )
             {
             otherlv_0=(Token)match(input,23,FOLLOW_23_in_ruleRoutePermission1124); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -1531,16 +1531,16 @@ public class InternalCodegenDslParser extends AbstractInternalAntlrParser {
                   	newLeafNode(otherlv_0, grammarAccess.getRoutePermissionAccess().getPERMISSIONKeyword_0());
                   
             }
-            // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:554:1: ( (lv_permission_1_0= RULE_STRING ) )
-            // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:555:1: (lv_permission_1_0= RULE_STRING )
+            // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:554:1: ( (lv_value_1_0= RULE_STRING ) )
+            // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:555:1: (lv_value_1_0= RULE_STRING )
             {
-            // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:555:1: (lv_permission_1_0= RULE_STRING )
-            // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:556:3: lv_permission_1_0= RULE_STRING
+            // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:555:1: (lv_value_1_0= RULE_STRING )
+            // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:556:3: lv_value_1_0= RULE_STRING
             {
-            lv_permission_1_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleRoutePermission1141); if (state.failed) return current;
+            lv_value_1_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleRoutePermission1141); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(lv_permission_1_0, grammarAccess.getRoutePermissionAccess().getPermissionSTRINGTerminalRuleCall_1_0()); 
+              			newLeafNode(lv_value_1_0, grammarAccess.getRoutePermissionAccess().getValueSTRINGTerminalRuleCall_1_0()); 
               		
             }
             if ( state.backtracking==0 ) {
@@ -1550,8 +1550,8 @@ public class InternalCodegenDslParser extends AbstractInternalAntlrParser {
               	        }
                      		setWithLastConsumed(
                      			current, 
-                     			"permission",
-                      		lv_permission_1_0, 
+                     			"value",
+                      		lv_value_1_0, 
                       		"STRING");
               	    
             }
@@ -1624,21 +1624,21 @@ public class InternalCodegenDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRouteRole"
-    // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:589:1: ruleRouteRole returns [EObject current=null] : (otherlv_0= 'ROLE' ( (lv_role_1_0= RULE_STRING ) ) ) ;
+    // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:589:1: ruleRouteRole returns [EObject current=null] : (otherlv_0= 'ROLE' ( (lv_value_1_0= RULE_STRING ) ) ) ;
     public final EObject ruleRouteRole() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token lv_role_1_0=null;
+        Token lv_value_1_0=null;
 
          enterRule(); 
             
         try {
-            // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:592:28: ( (otherlv_0= 'ROLE' ( (lv_role_1_0= RULE_STRING ) ) ) )
-            // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:593:1: (otherlv_0= 'ROLE' ( (lv_role_1_0= RULE_STRING ) ) )
+            // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:592:28: ( (otherlv_0= 'ROLE' ( (lv_value_1_0= RULE_STRING ) ) ) )
+            // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:593:1: (otherlv_0= 'ROLE' ( (lv_value_1_0= RULE_STRING ) ) )
             {
-            // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:593:1: (otherlv_0= 'ROLE' ( (lv_role_1_0= RULE_STRING ) ) )
-            // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:593:3: otherlv_0= 'ROLE' ( (lv_role_1_0= RULE_STRING ) )
+            // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:593:1: (otherlv_0= 'ROLE' ( (lv_value_1_0= RULE_STRING ) ) )
+            // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:593:3: otherlv_0= 'ROLE' ( (lv_value_1_0= RULE_STRING ) )
             {
             otherlv_0=(Token)match(input,24,FOLLOW_24_in_ruleRouteRole1229); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -1646,16 +1646,16 @@ public class InternalCodegenDslParser extends AbstractInternalAntlrParser {
                   	newLeafNode(otherlv_0, grammarAccess.getRouteRoleAccess().getROLEKeyword_0());
                   
             }
-            // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:597:1: ( (lv_role_1_0= RULE_STRING ) )
-            // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:598:1: (lv_role_1_0= RULE_STRING )
+            // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:597:1: ( (lv_value_1_0= RULE_STRING ) )
+            // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:598:1: (lv_value_1_0= RULE_STRING )
             {
-            // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:598:1: (lv_role_1_0= RULE_STRING )
-            // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:599:3: lv_role_1_0= RULE_STRING
+            // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:598:1: (lv_value_1_0= RULE_STRING )
+            // ../com.thesoftwarefactory.vertx.web.mvc.codegen/src-gen/com/thesoftwarefactory/vertx/web/mvc/parser/antlr/internal/InternalCodegenDsl.g:599:3: lv_value_1_0= RULE_STRING
             {
-            lv_role_1_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleRouteRole1246); if (state.failed) return current;
+            lv_value_1_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleRouteRole1246); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
-              			newLeafNode(lv_role_1_0, grammarAccess.getRouteRoleAccess().getRoleSTRINGTerminalRuleCall_1_0()); 
+              			newLeafNode(lv_value_1_0, grammarAccess.getRouteRoleAccess().getValueSTRINGTerminalRuleCall_1_0()); 
               		
             }
             if ( state.backtracking==0 ) {
@@ -1665,8 +1665,8 @@ public class InternalCodegenDslParser extends AbstractInternalAntlrParser {
               	        }
                      		setWithLastConsumed(
                      			current, 
-                     			"role",
-                      		lv_role_1_0, 
+                     			"value",
+                      		lv_value_1_0, 
                       		"STRING");
               	    
             }

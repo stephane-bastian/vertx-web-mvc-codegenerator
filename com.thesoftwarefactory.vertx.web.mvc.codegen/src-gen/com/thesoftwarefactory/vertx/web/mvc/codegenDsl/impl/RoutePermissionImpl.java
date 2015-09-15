@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.impl.RoutePermissionImpl#getPermission <em>Permission</em>}</li>
+ *   <li>{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.impl.RoutePermissionImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
@@ -28,24 +28,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class RoutePermissionImpl extends MinimalEObjectImpl.Container implements RoutePermission
 {
   /**
-   * The default value of the '{@link #getPermission() <em>Permission</em>}' attribute.
+   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPermission()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected static final String PERMISSION_EDEFAULT = null;
+  protected static final String VALUE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getPermission() <em>Permission</em>}' attribute.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPermission()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected String permission = PERMISSION_EDEFAULT;
+  protected String value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,9 +73,9 @@ public class RoutePermissionImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getPermission()
+  public String getValue()
   {
-    return permission;
+    return value;
   }
 
   /**
@@ -83,12 +83,12 @@ public class RoutePermissionImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setPermission(String newPermission)
+  public void setValue(String newValue)
   {
-    String oldPermission = permission;
-    permission = newPermission;
+    String oldValue = value;
+    value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, CodegenDslPackage.ROUTE_PERMISSION__PERMISSION, oldPermission, permission));
+      eNotify(new ENotificationImpl(this, Notification.SET, CodegenDslPackage.ROUTE_PERMISSION__VALUE, oldValue, value));
   }
 
   /**
@@ -101,8 +101,8 @@ public class RoutePermissionImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case CodegenDslPackage.ROUTE_PERMISSION__PERMISSION:
-        return getPermission();
+      case CodegenDslPackage.ROUTE_PERMISSION__VALUE:
+        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -117,8 +117,8 @@ public class RoutePermissionImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case CodegenDslPackage.ROUTE_PERMISSION__PERMISSION:
-        setPermission((String)newValue);
+      case CodegenDslPackage.ROUTE_PERMISSION__VALUE:
+        setValue((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -134,8 +134,8 @@ public class RoutePermissionImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case CodegenDslPackage.ROUTE_PERMISSION__PERMISSION:
-        setPermission(PERMISSION_EDEFAULT);
+      case CodegenDslPackage.ROUTE_PERMISSION__VALUE:
+        setValue(VALUE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -151,8 +151,8 @@ public class RoutePermissionImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case CodegenDslPackage.ROUTE_PERMISSION__PERMISSION:
-        return PERMISSION_EDEFAULT == null ? permission != null : !PERMISSION_EDEFAULT.equals(permission);
+      case CodegenDslPackage.ROUTE_PERMISSION__VALUE:
+        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
   }
@@ -168,8 +168,8 @@ public class RoutePermissionImpl extends MinimalEObjectImpl.Container implements
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (permission: ");
-    result.append(permission);
+    result.append(" (value: ");
+    result.append(value);
     result.append(')');
     return result.toString();
   }

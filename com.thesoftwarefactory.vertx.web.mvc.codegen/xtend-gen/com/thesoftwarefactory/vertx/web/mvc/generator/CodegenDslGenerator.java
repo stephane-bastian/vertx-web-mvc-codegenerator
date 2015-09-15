@@ -5,7 +5,8 @@ package com.thesoftwarefactory.vertx.web.mvc.generator;
 
 import com.google.inject.Inject;
 import com.thesoftwarefactory.vertx.web.mvc.codegenDsl.Model;
-import com.thesoftwarefactory.vertx.web.mvc.generator.GenerateRouteRegistration;
+import com.thesoftwarefactory.vertx.web.mvc.generator.GenerateRegisterRoutes;
+import com.thesoftwarefactory.vertx.web.mvc.generator.GenerateRegisterRoutesSecurity;
 import com.thesoftwarefactory.vertx.web.mvc.generator.GenerateRoutes;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -33,7 +34,11 @@ public class CodegenDslGenerator implements IGenerator {
   
   @Inject
   @Extension
-  private GenerateRouteRegistration generateRouteRegistration;
+  private GenerateRegisterRoutes generateRegisterRoutes;
+  
+  @Inject
+  @Extension
+  private GenerateRegisterRoutesSecurity generateRegisterRoutesSecurity;
   
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
@@ -43,6 +48,7 @@ public class CodegenDslGenerator implements IGenerator {
     ResourceSet _resourceSet = resource.getResourceSet();
     final JvmTypeReferenceBuilder typeReferenceBuilder = this.typeRefBuilderFactory.create(_resourceSet);
     this.generateRoutes.generate(typeReferenceBuilder, model, fsa);
-    this.generateRouteRegistration.generate(resource, fsa);
+    this.generateRegisterRoutes.generate(resource, fsa);
+    this.generateRegisterRoutesSecurity.generate(resource, fsa);
   }
 }

@@ -275,48 +275,48 @@ public class CodegenDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "RoutePermission");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cPERMISSIONKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cPermissionAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cPermissionSTRINGTerminalRuleCall_1_0 = (RuleCall)cPermissionAssignment_1.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueSTRINGTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
 		//RoutePermission:
-		//	"PERMISSION" permission=STRING;
+		//	"PERMISSION" value=STRING;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"PERMISSION" permission=STRING
+		//"PERMISSION" value=STRING
 		public Group getGroup() { return cGroup; }
 
 		//"PERMISSION"
 		public Keyword getPERMISSIONKeyword_0() { return cPERMISSIONKeyword_0; }
 
-		//permission=STRING
-		public Assignment getPermissionAssignment_1() { return cPermissionAssignment_1; }
+		//value=STRING
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
 
 		//STRING
-		public RuleCall getPermissionSTRINGTerminalRuleCall_1_0() { return cPermissionSTRINGTerminalRuleCall_1_0; }
+		public RuleCall getValueSTRINGTerminalRuleCall_1_0() { return cValueSTRINGTerminalRuleCall_1_0; }
 	}
 
 	public class RouteRoleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "RouteRole");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cROLEKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cRoleAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cRoleSTRINGTerminalRuleCall_1_0 = (RuleCall)cRoleAssignment_1.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueSTRINGTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
 		//RouteRole:
-		//	"ROLE" role=STRING;
+		//	"ROLE" value=STRING;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"ROLE" role=STRING
+		//"ROLE" value=STRING
 		public Group getGroup() { return cGroup; }
 
 		//"ROLE"
 		public Keyword getROLEKeyword_0() { return cROLEKeyword_0; }
 
-		//role=STRING
-		public Assignment getRoleAssignment_1() { return cRoleAssignment_1; }
+		//value=STRING
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
 
 		//STRING
-		public RuleCall getRoleSTRINGTerminalRuleCall_1_0() { return cRoleSTRINGTerminalRuleCall_1_0; }
+		public RuleCall getValueSTRINGTerminalRuleCall_1_0() { return cValueSTRINGTerminalRuleCall_1_0; }
 	}
 	
 	
@@ -524,7 +524,7 @@ public class CodegenDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//RoutePermission:
-	//	"PERMISSION" permission=STRING;
+	//	"PERMISSION" value=STRING;
 	public RoutePermissionElements getRoutePermissionAccess() {
 		return pRoutePermission;
 	}
@@ -534,7 +534,7 @@ public class CodegenDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//RouteRole:
-	//	"ROLE" role=STRING;
+	//	"ROLE" value=STRING;
 	public RouteRoleElements getRouteRoleAccess() {
 		return pRouteRole;
 	}

@@ -14,7 +14,7 @@ import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
-public class GenerateRouteRegistration {
+public class GenerateRegisterRoutes {
   public void generate(final Resource resource, final IFileSystemAccess fsa) {
     EList<EObject> _contents = resource.getContents();
     EObject _head = IterableExtensions.<EObject>head(_contents);
@@ -58,12 +58,16 @@ public class GenerateRouteRegistration {
       _builder.append("\t");
       _builder.append("public final static void register(Router router) {");
       _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("Objects.requireNonNull(router);");
+      _builder.newLine();
+      _builder.newLine();
       {
         EList<Route> _routes = model.getRoutes();
         for(final Route route : _routes) {
           _builder.append("\t\t");
           _builder.append("router.");
-          String _routerVerb = GenerateRouteRegistration.routerVerb(route);
+          String _routerVerb = GenerateRegisterRoutes.routerVerb(route);
           _builder.append(_routerVerb, "\t\t");
           _builder.append("(\"");
           String _trimPath = RoutingHelper.getTrimPath(route);

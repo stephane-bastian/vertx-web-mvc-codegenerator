@@ -14686,26 +14686,26 @@ public class InternalCodegenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RoutePermission__Group__1__Impl"
-    // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:4545:1: rule__RoutePermission__Group__1__Impl : ( ( rule__RoutePermission__PermissionAssignment_1 ) ) ;
+    // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:4545:1: rule__RoutePermission__Group__1__Impl : ( ( rule__RoutePermission__ValueAssignment_1 ) ) ;
     public final void rule__RoutePermission__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:4549:1: ( ( ( rule__RoutePermission__PermissionAssignment_1 ) ) )
-            // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:4550:1: ( ( rule__RoutePermission__PermissionAssignment_1 ) )
+            // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:4549:1: ( ( ( rule__RoutePermission__ValueAssignment_1 ) ) )
+            // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:4550:1: ( ( rule__RoutePermission__ValueAssignment_1 ) )
             {
-            // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:4550:1: ( ( rule__RoutePermission__PermissionAssignment_1 ) )
-            // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:4551:1: ( rule__RoutePermission__PermissionAssignment_1 )
+            // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:4550:1: ( ( rule__RoutePermission__ValueAssignment_1 ) )
+            // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:4551:1: ( rule__RoutePermission__ValueAssignment_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getRoutePermissionAccess().getPermissionAssignment_1()); 
+               before(grammarAccess.getRoutePermissionAccess().getValueAssignment_1()); 
             }
-            // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:4552:1: ( rule__RoutePermission__PermissionAssignment_1 )
-            // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:4552:2: rule__RoutePermission__PermissionAssignment_1
+            // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:4552:1: ( rule__RoutePermission__ValueAssignment_1 )
+            // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:4552:2: rule__RoutePermission__ValueAssignment_1
             {
-            pushFollow(FOLLOW_rule__RoutePermission__PermissionAssignment_1_in_rule__RoutePermission__Group__1__Impl9803);
-            rule__RoutePermission__PermissionAssignment_1();
+            pushFollow(FOLLOW_rule__RoutePermission__ValueAssignment_1_in_rule__RoutePermission__Group__1__Impl9803);
+            rule__RoutePermission__ValueAssignment_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -14713,7 +14713,7 @@ public class InternalCodegenDslParser extends AbstractInternalContentAssistParse
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getRoutePermissionAccess().getPermissionAssignment_1()); 
+               after(grammarAccess.getRoutePermissionAccess().getValueAssignment_1()); 
             }
 
             }
@@ -14849,26 +14849,26 @@ public class InternalCodegenDslParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RouteRole__Group__1__Impl"
-    // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:4608:1: rule__RouteRole__Group__1__Impl : ( ( rule__RouteRole__RoleAssignment_1 ) ) ;
+    // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:4608:1: rule__RouteRole__Group__1__Impl : ( ( rule__RouteRole__ValueAssignment_1 ) ) ;
     public final void rule__RouteRole__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:4612:1: ( ( ( rule__RouteRole__RoleAssignment_1 ) ) )
-            // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:4613:1: ( ( rule__RouteRole__RoleAssignment_1 ) )
+            // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:4612:1: ( ( ( rule__RouteRole__ValueAssignment_1 ) ) )
+            // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:4613:1: ( ( rule__RouteRole__ValueAssignment_1 ) )
             {
-            // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:4613:1: ( ( rule__RouteRole__RoleAssignment_1 ) )
-            // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:4614:1: ( rule__RouteRole__RoleAssignment_1 )
+            // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:4613:1: ( ( rule__RouteRole__ValueAssignment_1 ) )
+            // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:4614:1: ( rule__RouteRole__ValueAssignment_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getRouteRoleAccess().getRoleAssignment_1()); 
+               before(grammarAccess.getRouteRoleAccess().getValueAssignment_1()); 
             }
-            // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:4615:1: ( rule__RouteRole__RoleAssignment_1 )
-            // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:4615:2: rule__RouteRole__RoleAssignment_1
+            // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:4615:1: ( rule__RouteRole__ValueAssignment_1 )
+            // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:4615:2: rule__RouteRole__ValueAssignment_1
             {
-            pushFollow(FOLLOW_rule__RouteRole__RoleAssignment_1_in_rule__RouteRole__Group__1__Impl9926);
-            rule__RouteRole__RoleAssignment_1();
+            pushFollow(FOLLOW_rule__RouteRole__ValueAssignment_1_in_rule__RouteRole__Group__1__Impl9926);
+            rule__RouteRole__ValueAssignment_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -14876,7 +14876,7 @@ public class InternalCodegenDslParser extends AbstractInternalContentAssistParse
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getRouteRoleAccess().getRoleAssignment_1()); 
+               after(grammarAccess.getRouteRoleAccess().getValueAssignment_1()); 
             }
 
             }
@@ -52616,9 +52616,9 @@ public class InternalCodegenDslParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__ParameterDefaultValue__ValueAssignment_1_2"
 
 
-    // $ANTLR start "rule__RoutePermission__PermissionAssignment_1"
-    // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:18404:1: rule__RoutePermission__PermissionAssignment_1 : ( RULE_STRING ) ;
-    public final void rule__RoutePermission__PermissionAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__RoutePermission__ValueAssignment_1"
+    // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:18404:1: rule__RoutePermission__ValueAssignment_1 : ( RULE_STRING ) ;
+    public final void rule__RoutePermission__ValueAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -52630,11 +52630,11 @@ public class InternalCodegenDslParser extends AbstractInternalContentAssistParse
             // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:18410:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getRoutePermissionAccess().getPermissionSTRINGTerminalRuleCall_1_0()); 
+               before(grammarAccess.getRoutePermissionAccess().getValueSTRINGTerminalRuleCall_1_0()); 
             }
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__RoutePermission__PermissionAssignment_137042); if (state.failed) return ;
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__RoutePermission__ValueAssignment_137042); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getRoutePermissionAccess().getPermissionSTRINGTerminalRuleCall_1_0()); 
+               after(grammarAccess.getRoutePermissionAccess().getValueSTRINGTerminalRuleCall_1_0()); 
             }
 
             }
@@ -52654,12 +52654,12 @@ public class InternalCodegenDslParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__RoutePermission__PermissionAssignment_1"
+    // $ANTLR end "rule__RoutePermission__ValueAssignment_1"
 
 
-    // $ANTLR start "rule__RouteRole__RoleAssignment_1"
-    // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:18419:1: rule__RouteRole__RoleAssignment_1 : ( RULE_STRING ) ;
-    public final void rule__RouteRole__RoleAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__RouteRole__ValueAssignment_1"
+    // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:18419:1: rule__RouteRole__ValueAssignment_1 : ( RULE_STRING ) ;
+    public final void rule__RouteRole__ValueAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -52671,11 +52671,11 @@ public class InternalCodegenDslParser extends AbstractInternalContentAssistParse
             // ../com.thesoftwarefactory.vertx.web.mvc.codegen.ui/src-gen/com/thesoftwarefactory/vertx/web/mvc/ui/contentassist/antlr/internal/InternalCodegenDsl.g:18425:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getRouteRoleAccess().getRoleSTRINGTerminalRuleCall_1_0()); 
+               before(grammarAccess.getRouteRoleAccess().getValueSTRINGTerminalRuleCall_1_0()); 
             }
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__RouteRole__RoleAssignment_137073); if (state.failed) return ;
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__RouteRole__ValueAssignment_137073); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getRouteRoleAccess().getRoleSTRINGTerminalRuleCall_1_0()); 
+               after(grammarAccess.getRouteRoleAccess().getValueSTRINGTerminalRuleCall_1_0()); 
             }
 
             }
@@ -52695,7 +52695,7 @@ public class InternalCodegenDslParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__RouteRole__RoleAssignment_1"
+    // $ANTLR end "rule__RouteRole__ValueAssignment_1"
 
 
     // $ANTLR start "rule__XAssignment__FeatureAssignment_0_1"
@@ -64405,12 +64405,12 @@ public class InternalCodegenDslParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_rule__RoutePermission__Group__1_in_rule__RoutePermission__Group__09717 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_63_in_rule__RoutePermission__Group__0__Impl9745 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__RoutePermission__Group__1__Impl_in_rule__RoutePermission__Group__19776 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__RoutePermission__PermissionAssignment_1_in_rule__RoutePermission__Group__1__Impl9803 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__RoutePermission__ValueAssignment_1_in_rule__RoutePermission__Group__1__Impl9803 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__RouteRole__Group__0__Impl_in_rule__RouteRole__Group__09837 = new BitSet(new long[]{0x0000000000000200L});
     public static final BitSet FOLLOW_rule__RouteRole__Group__1_in_rule__RouteRole__Group__09840 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_64_in_rule__RouteRole__Group__0__Impl9868 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__RouteRole__Group__1__Impl_in_rule__RouteRole__Group__19899 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__RouteRole__RoleAssignment_1_in_rule__RouteRole__Group__1__Impl9926 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__RouteRole__ValueAssignment_1_in_rule__RouteRole__Group__1__Impl9926 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__XAssignment__Group_0__0__Impl_in_rule__XAssignment__Group_0__09960 = new BitSet(new long[]{0x0007800000000010L});
     public static final BitSet FOLLOW_rule__XAssignment__Group_0__1_in_rule__XAssignment__Group_0__09963 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__XAssignment__Group_0__1__Impl_in_rule__XAssignment__Group_0__110021 = new BitSet(new long[]{0x0000000000008000L});
@@ -65501,8 +65501,8 @@ public class InternalCodegenDslParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_81_in_rule__ParameterDefaultValue__NewAssignment_1_036928 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_82_in_rule__ParameterDefaultValue__NullAssignment_1_136972 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__ParameterDefaultValue__ValueAssignment_1_237011 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__RoutePermission__PermissionAssignment_137042 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__RouteRole__RoleAssignment_137073 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__RoutePermission__ValueAssignment_137042 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__RouteRole__ValueAssignment_137073 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleFeatureCallID_in_rule__XAssignment__FeatureAssignment_0_137108 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleXAssignment_in_rule__XAssignment__ValueAssignment_0_337143 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleOpMultiAssign_in_rule__XAssignment__FeatureAssignment_1_1_0_0_137178 = new BitSet(new long[]{0x0000000000000002L});

@@ -389,32 +389,32 @@ public class CodegenDslSemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     permission=STRING
+	 *     value=STRING
 	 */
 	protected void sequence_RoutePermission(EObject context, RoutePermission semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, CodegenDslPackage.Literals.ROUTE_PERMISSION__PERMISSION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CodegenDslPackage.Literals.ROUTE_PERMISSION__PERMISSION));
+			if(transientValues.isValueTransient(semanticObject, CodegenDslPackage.Literals.ROUTE_PERMISSION__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CodegenDslPackage.Literals.ROUTE_PERMISSION__VALUE));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getRoutePermissionAccess().getPermissionSTRINGTerminalRuleCall_1_0(), semanticObject.getPermission());
+		feeder.accept(grammarAccess.getRoutePermissionAccess().getValueSTRINGTerminalRuleCall_1_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     role=STRING
+	 *     value=STRING
 	 */
 	protected void sequence_RouteRole(EObject context, RouteRole semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, CodegenDslPackage.Literals.ROUTE_ROLE__ROLE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CodegenDslPackage.Literals.ROUTE_ROLE__ROLE));
+			if(transientValues.isValueTransient(semanticObject, CodegenDslPackage.Literals.ROUTE_ROLE__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CodegenDslPackage.Literals.ROUTE_ROLE__VALUE));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getRouteRoleAccess().getRoleSTRINGTerminalRuleCall_1_0(), semanticObject.getRole());
+		feeder.accept(grammarAccess.getRouteRoleAccess().getValueSTRINGTerminalRuleCall_1_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	

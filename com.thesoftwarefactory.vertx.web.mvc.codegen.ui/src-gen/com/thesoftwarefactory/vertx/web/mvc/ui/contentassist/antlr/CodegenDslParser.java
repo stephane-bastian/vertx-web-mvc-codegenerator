@@ -283,8 +283,8 @@ public class CodegenDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getParameterDefaultValueAccess().getNewAssignment_1_0(), "rule__ParameterDefaultValue__NewAssignment_1_0");
 					put(grammarAccess.getParameterDefaultValueAccess().getNullAssignment_1_1(), "rule__ParameterDefaultValue__NullAssignment_1_1");
 					put(grammarAccess.getParameterDefaultValueAccess().getValueAssignment_1_2(), "rule__ParameterDefaultValue__ValueAssignment_1_2");
-					put(grammarAccess.getRoutePermissionAccess().getPermissionAssignment_1(), "rule__RoutePermission__PermissionAssignment_1");
-					put(grammarAccess.getRouteRoleAccess().getRoleAssignment_1(), "rule__RouteRole__RoleAssignment_1");
+					put(grammarAccess.getRoutePermissionAccess().getValueAssignment_1(), "rule__RoutePermission__ValueAssignment_1");
+					put(grammarAccess.getRouteRoleAccess().getValueAssignment_1(), "rule__RouteRole__ValueAssignment_1");
 					put(grammarAccess.getXAssignmentAccess().getFeatureAssignment_0_1(), "rule__XAssignment__FeatureAssignment_0_1");
 					put(grammarAccess.getXAssignmentAccess().getValueAssignment_0_3(), "rule__XAssignment__ValueAssignment_0_3");
 					put(grammarAccess.getXAssignmentAccess().getFeatureAssignment_1_1_0_0_1(), "rule__XAssignment__FeatureAssignment_1_1_0_0_1");

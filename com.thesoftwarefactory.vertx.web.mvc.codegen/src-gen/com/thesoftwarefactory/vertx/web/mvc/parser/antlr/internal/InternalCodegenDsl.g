@@ -553,9 +553,9 @@ ruleRoutePermission returns [EObject current=null]
     }
 (
 (
-		lv_permission_1_0=RULE_STRING
+		lv_value_1_0=RULE_STRING
 		{
-			newLeafNode(lv_permission_1_0, grammarAccess.getRoutePermissionAccess().getPermissionSTRINGTerminalRuleCall_1_0()); 
+			newLeafNode(lv_value_1_0, grammarAccess.getRoutePermissionAccess().getValueSTRINGTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -563,8 +563,8 @@ ruleRoutePermission returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"permission",
-        		lv_permission_1_0, 
+       			"value",
+        		lv_value_1_0, 
         		"STRING");
 	    }
 
@@ -596,9 +596,9 @@ ruleRouteRole returns [EObject current=null]
     }
 (
 (
-		lv_role_1_0=RULE_STRING
+		lv_value_1_0=RULE_STRING
 		{
-			newLeafNode(lv_role_1_0, grammarAccess.getRouteRoleAccess().getRoleSTRINGTerminalRuleCall_1_0()); 
+			newLeafNode(lv_value_1_0, grammarAccess.getRouteRoleAccess().getValueSTRINGTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -606,8 +606,8 @@ ruleRouteRole returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"role",
-        		lv_role_1_0, 
+       			"value",
+        		lv_value_1_0, 
         		"STRING");
 	    }
 

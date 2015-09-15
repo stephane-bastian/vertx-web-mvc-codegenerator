@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RoutePermission#getPermission <em>Permission</em>}</li>
+ *   <li>{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RoutePermission#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @see com.thesoftwarefactory.vertx.web.mvc.codegenDsl.CodegenDslPackage#getRoutePermission()
@@ -23,29 +23,29 @@ import org.eclipse.emf.ecore.EObject;
 public interface RoutePermission extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Permission</b></em>' attribute.
+   * Returns the value of the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Permission</em>' attribute isn't clear,
+   * If the meaning of the '<em>Value</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Permission</em>' attribute.
-   * @see #setPermission(String)
-   * @see com.thesoftwarefactory.vertx.web.mvc.codegenDsl.CodegenDslPackage#getRoutePermission_Permission()
+   * @return the value of the '<em>Value</em>' attribute.
+   * @see #setValue(String)
+   * @see com.thesoftwarefactory.vertx.web.mvc.codegenDsl.CodegenDslPackage#getRoutePermission_Value()
    * @model
    * @generated
    */
-  String getPermission();
+  String getValue();
 
   /**
-   * Sets the value of the '{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RoutePermission#getPermission <em>Permission</em>}' attribute.
+   * Sets the value of the '{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RoutePermission#getValue <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Permission</em>' attribute.
-   * @see #getPermission()
+   * @param value the new value of the '<em>Value</em>' attribute.
+   * @see #getValue()
    * @generated
    */
-  void setPermission(String value);
+  void setValue(String value);
 
 } // RoutePermission

@@ -33,10 +33,10 @@ RouteHandlerName:
 	ID ('.' ID)+;
 	
 RoutePermission:
-	('PERMISSION' permission=STRING);
+	('PERMISSION' value=STRING);
 
 RouteRole:
-	('ROLE' role=STRING);
+	('ROLE' value=STRING);
 
 terminal VALID_PATH:
 	'/' -> (' '|'\t'|'\r'|'\n');

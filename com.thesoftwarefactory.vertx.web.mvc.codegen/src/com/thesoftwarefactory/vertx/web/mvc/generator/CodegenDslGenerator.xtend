@@ -19,13 +19,15 @@ class CodegenDslGenerator implements IGenerator {
 
 	@Inject JvmTypeReferenceBuilder.Factory typeRefBuilderFactory
 	@Inject extension GenerateRoutes generateRoutes
-	@Inject extension GenerateRouteRegistration generateRouteRegistration
+	@Inject extension GenerateRegisterRoutes generateRegisterRoutes
+	@Inject extension GenerateRegisterRoutesSecurity generateRegisterRoutesSecurity
 	
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 		val model = resource.contents.head as Model;
 		val JvmTypeReferenceBuilder typeReferenceBuilder = typeRefBuilderFactory.create(resource.resourceSet);
 
 		generateRoutes.generate(typeReferenceBuilder, model, fsa)
-		generateRouteRegistration.generate(resource, fsa)
+		generateRegisterRoutes.generate(resource, fsa)
+		generateRegisterRoutesSecurity.generate(resource, fsa)
 	}
 }

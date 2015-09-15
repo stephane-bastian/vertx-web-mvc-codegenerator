@@ -43,10 +43,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CodegenDsl.ecore#//ParameterDefaultValue/value"/>
     </genClasses>
     <genClasses ecoreClass="CodegenDsl.ecore#//RoutePermission">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CodegenDsl.ecore#//RoutePermission/permission"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CodegenDsl.ecore#//RoutePermission/value"/>
     </genClasses>
     <genClasses ecoreClass="CodegenDsl.ecore#//RouteRole">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CodegenDsl.ecore#//RouteRole/role"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CodegenDsl.ecore#//RouteRole/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
