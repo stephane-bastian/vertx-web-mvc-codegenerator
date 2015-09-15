@@ -139,7 +139,7 @@ class GenerateRoutes {
 					}
 					
 					private String path() {
-						return "«route.trimPath»"«FOR routeParameter: methodHandler.routeParameters»«IF route.trimPath.contains("/:" + routeParameter.name)».replace("/:«routeParameter.name»", «routeParameter.name».toString())«ENDIF»«ENDFOR»;
+						return "«route.trimPath»"«FOR routeParameter: methodHandler.routeParameters»«IF route.trimPath.contains("/:" + routeParameter.name)».replace«»("/:«routeParameter.name»", "/" + «routeParameter.name».toString())«ENDIF»«ENDFOR»;
 					}
 					
 					«FOR routeParameter: methodHandler.optionalRouteParameters»
