@@ -6,6 +6,8 @@ import com.thesoftwarefactory.vertx.web.mvc.codegenDsl.CodegenDslPackage;
 import com.thesoftwarefactory.vertx.web.mvc.codegenDsl.Route;
 import com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RouteHandler;
 import com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RoutePath;
+import com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RoutePermission;
+import com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RouteRole;
 import com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RouteVerb;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -28,6 +30,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.impl.RouteImpl#getVerb <em>Verb</em>}</li>
  *   <li>{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.impl.RouteImpl#getPath <em>Path</em>}</li>
  *   <li>{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.impl.RouteImpl#getHandler <em>Handler</em>}</li>
+ *   <li>{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.impl.RouteImpl#getPermission <em>Permission</em>}</li>
+ *   <li>{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.impl.RouteImpl#getRole <em>Role</em>}</li>
  * </ul>
  *
  * @generated
@@ -73,6 +77,26 @@ public class RouteImpl extends MinimalEObjectImpl.Container implements Route
    * @ordered
    */
   protected RouteHandler handler;
+
+  /**
+   * The cached value of the '{@link #getPermission() <em>Permission</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPermission()
+   * @generated
+   * @ordered
+   */
+  protected RoutePermission permission;
+
+  /**
+   * The cached value of the '{@link #getRole() <em>Role</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRole()
+   * @generated
+   * @ordered
+   */
+  protected RouteRole role;
 
   /**
    * <!-- begin-user-doc -->
@@ -219,6 +243,102 @@ public class RouteImpl extends MinimalEObjectImpl.Container implements Route
    * <!-- end-user-doc -->
    * @generated
    */
+  public RoutePermission getPermission()
+  {
+    return permission;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetPermission(RoutePermission newPermission, NotificationChain msgs)
+  {
+    RoutePermission oldPermission = permission;
+    permission = newPermission;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CodegenDslPackage.ROUTE__PERMISSION, oldPermission, newPermission);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPermission(RoutePermission newPermission)
+  {
+    if (newPermission != permission)
+    {
+      NotificationChain msgs = null;
+      if (permission != null)
+        msgs = ((InternalEObject)permission).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CodegenDslPackage.ROUTE__PERMISSION, null, msgs);
+      if (newPermission != null)
+        msgs = ((InternalEObject)newPermission).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CodegenDslPackage.ROUTE__PERMISSION, null, msgs);
+      msgs = basicSetPermission(newPermission, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CodegenDslPackage.ROUTE__PERMISSION, newPermission, newPermission));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RouteRole getRole()
+  {
+    return role;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetRole(RouteRole newRole, NotificationChain msgs)
+  {
+    RouteRole oldRole = role;
+    role = newRole;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CodegenDslPackage.ROUTE__ROLE, oldRole, newRole);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setRole(RouteRole newRole)
+  {
+    if (newRole != role)
+    {
+      NotificationChain msgs = null;
+      if (role != null)
+        msgs = ((InternalEObject)role).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CodegenDslPackage.ROUTE__ROLE, null, msgs);
+      if (newRole != null)
+        msgs = ((InternalEObject)newRole).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CodegenDslPackage.ROUTE__ROLE, null, msgs);
+      msgs = basicSetRole(newRole, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, CodegenDslPackage.ROUTE__ROLE, newRole, newRole));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -228,6 +348,10 @@ public class RouteImpl extends MinimalEObjectImpl.Container implements Route
         return basicSetPath(null, msgs);
       case CodegenDslPackage.ROUTE__HANDLER:
         return basicSetHandler(null, msgs);
+      case CodegenDslPackage.ROUTE__PERMISSION:
+        return basicSetPermission(null, msgs);
+      case CodegenDslPackage.ROUTE__ROLE:
+        return basicSetRole(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -248,6 +372,10 @@ public class RouteImpl extends MinimalEObjectImpl.Container implements Route
         return getPath();
       case CodegenDslPackage.ROUTE__HANDLER:
         return getHandler();
+      case CodegenDslPackage.ROUTE__PERMISSION:
+        return getPermission();
+      case CodegenDslPackage.ROUTE__ROLE:
+        return getRole();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -270,6 +398,12 @@ public class RouteImpl extends MinimalEObjectImpl.Container implements Route
         return;
       case CodegenDslPackage.ROUTE__HANDLER:
         setHandler((RouteHandler)newValue);
+        return;
+      case CodegenDslPackage.ROUTE__PERMISSION:
+        setPermission((RoutePermission)newValue);
+        return;
+      case CodegenDslPackage.ROUTE__ROLE:
+        setRole((RouteRole)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -294,6 +428,12 @@ public class RouteImpl extends MinimalEObjectImpl.Container implements Route
       case CodegenDslPackage.ROUTE__HANDLER:
         setHandler((RouteHandler)null);
         return;
+      case CodegenDslPackage.ROUTE__PERMISSION:
+        setPermission((RoutePermission)null);
+        return;
+      case CodegenDslPackage.ROUTE__ROLE:
+        setRole((RouteRole)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -314,6 +454,10 @@ public class RouteImpl extends MinimalEObjectImpl.Container implements Route
         return path != null;
       case CodegenDslPackage.ROUTE__HANDLER:
         return handler != null;
+      case CodegenDslPackage.ROUTE__PERMISSION:
+        return permission != null;
+      case CodegenDslPackage.ROUTE__ROLE:
+        return role != null;
     }
     return super.eIsSet(featureID);
   }

@@ -540,10 +540,11 @@ public class GenerateRoutes {
                 String _plus = ("/:" + _name_7);
                 boolean _contains = _trimPath_1.contains(_plus);
                 if (_contains) {
-                  _builder.append(".replace(\"/:");
+                  _builder.append(".replace");
+                  _builder.append("(\"/:");
                   String _name_8 = routeParameter_7.getName();
                   _builder.append(_name_8, "\t\t\t");
-                  _builder.append("\", ");
+                  _builder.append("\", \"/\" + ");
                   String _name_9 = routeParameter_7.getName();
                   _builder.append(_name_9, "\t\t\t");
                   _builder.append(".toString())");

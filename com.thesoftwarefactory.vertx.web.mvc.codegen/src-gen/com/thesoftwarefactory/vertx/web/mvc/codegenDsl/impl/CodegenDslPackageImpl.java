@@ -10,6 +10,8 @@ import com.thesoftwarefactory.vertx.web.mvc.codegenDsl.ParameterDefaultValue;
 import com.thesoftwarefactory.vertx.web.mvc.codegenDsl.Route;
 import com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RouteHandler;
 import com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RoutePath;
+import com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RoutePermission;
+import com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RouteRole;
 import com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RouteVerb;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -69,6 +71,20 @@ public class CodegenDslPackageImpl extends EPackageImpl implements CodegenDslPac
    * @generated
    */
   private EClass parameterDefaultValueEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass routePermissionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass routeRoleEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -205,6 +221,26 @@ public class CodegenDslPackageImpl extends EPackageImpl implements CodegenDslPac
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getRoute_Permission()
+  {
+    return (EReference)routeEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRoute_Role()
+  {
+    return (EReference)routeEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getRoutePath()
   {
     return routePathEClass;
@@ -325,6 +361,46 @@ public class CodegenDslPackageImpl extends EPackageImpl implements CodegenDslPac
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getRoutePermission()
+  {
+    return routePermissionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRoutePermission_Permission()
+  {
+    return (EAttribute)routePermissionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRouteRole()
+  {
+    return routeRoleEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRouteRole_Role()
+  {
+    return (EAttribute)routeRoleEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EEnum getRouteVerb()
   {
     return routeVerbEEnum;
@@ -367,6 +443,8 @@ public class CodegenDslPackageImpl extends EPackageImpl implements CodegenDslPac
     createEAttribute(routeEClass, ROUTE__VERB);
     createEReference(routeEClass, ROUTE__PATH);
     createEReference(routeEClass, ROUTE__HANDLER);
+    createEReference(routeEClass, ROUTE__PERMISSION);
+    createEReference(routeEClass, ROUTE__ROLE);
 
     routePathEClass = createEClass(ROUTE_PATH);
     createEAttribute(routePathEClass, ROUTE_PATH__VALUE);
@@ -383,6 +461,12 @@ public class CodegenDslPackageImpl extends EPackageImpl implements CodegenDslPac
     createEAttribute(parameterDefaultValueEClass, PARAMETER_DEFAULT_VALUE__NEW);
     createEAttribute(parameterDefaultValueEClass, PARAMETER_DEFAULT_VALUE__NULL);
     createEAttribute(parameterDefaultValueEClass, PARAMETER_DEFAULT_VALUE__VALUE);
+
+    routePermissionEClass = createEClass(ROUTE_PERMISSION);
+    createEAttribute(routePermissionEClass, ROUTE_PERMISSION__PERMISSION);
+
+    routeRoleEClass = createEClass(ROUTE_ROLE);
+    createEAttribute(routeRoleEClass, ROUTE_ROLE__ROLE);
 
     // Create enums
     routeVerbEEnum = createEEnum(ROUTE_VERB);
@@ -426,6 +510,8 @@ public class CodegenDslPackageImpl extends EPackageImpl implements CodegenDslPac
     initEAttribute(getRoute_Verb(), this.getRouteVerb(), "verb", null, 0, 1, Route.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRoute_Path(), this.getRoutePath(), null, "path", null, 0, 1, Route.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRoute_Handler(), this.getRouteHandler(), null, "handler", null, 0, 1, Route.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRoute_Permission(), this.getRoutePermission(), null, "permission", null, 0, 1, Route.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRoute_Role(), this.getRouteRole(), null, "role", null, 0, 1, Route.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(routePathEClass, RoutePath.class, "RoutePath", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRoutePath_Value(), ecorePackage.getEString(), "value", null, 0, 1, RoutePath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -442,6 +528,12 @@ public class CodegenDslPackageImpl extends EPackageImpl implements CodegenDslPac
     initEAttribute(getParameterDefaultValue_New(), ecorePackage.getEBoolean(), "new", null, 0, 1, ParameterDefaultValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getParameterDefaultValue_Null(), ecorePackage.getEBoolean(), "null", null, 0, 1, ParameterDefaultValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getParameterDefaultValue_Value(), ecorePackage.getEString(), "value", null, 0, 1, ParameterDefaultValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(routePermissionEClass, RoutePermission.class, "RoutePermission", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRoutePermission_Permission(), ecorePackage.getEString(), "permission", null, 0, 1, RoutePermission.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(routeRoleEClass, RouteRole.class, "RouteRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRouteRole_Role(), ecorePackage.getEString(), "role", null, 0, 1, RouteRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
     initEEnum(routeVerbEEnum, RouteVerb.class, "RouteVerb");

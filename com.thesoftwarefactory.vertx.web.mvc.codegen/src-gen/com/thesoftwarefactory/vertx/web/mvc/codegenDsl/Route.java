@@ -16,6 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.Route#getVerb <em>Verb</em>}</li>
  *   <li>{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.Route#getPath <em>Path</em>}</li>
  *   <li>{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.Route#getHandler <em>Handler</em>}</li>
+ *   <li>{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.Route#getPermission <em>Permission</em>}</li>
+ *   <li>{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.Route#getRole <em>Role</em>}</li>
  * </ul>
  *
  * @see com.thesoftwarefactory.vertx.web.mvc.codegenDsl.CodegenDslPackage#getRoute()
@@ -104,5 +106,57 @@ public interface Route extends EObject
    * @generated
    */
   void setHandler(RouteHandler value);
+
+  /**
+   * Returns the value of the '<em><b>Permission</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Permission</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Permission</em>' containment reference.
+   * @see #setPermission(RoutePermission)
+   * @see com.thesoftwarefactory.vertx.web.mvc.codegenDsl.CodegenDslPackage#getRoute_Permission()
+   * @model containment="true"
+   * @generated
+   */
+  RoutePermission getPermission();
+
+  /**
+   * Sets the value of the '{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.Route#getPermission <em>Permission</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Permission</em>' containment reference.
+   * @see #getPermission()
+   * @generated
+   */
+  void setPermission(RoutePermission value);
+
+  /**
+   * Returns the value of the '<em><b>Role</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Role</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Role</em>' containment reference.
+   * @see #setRole(RouteRole)
+   * @see com.thesoftwarefactory.vertx.web.mvc.codegenDsl.CodegenDslPackage#getRoute_Role()
+   * @model containment="true"
+   * @generated
+   */
+  RouteRole getRole();
+
+  /**
+   * Sets the value of the '{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.Route#getRole <em>Role</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Role</em>' containment reference.
+   * @see #getRole()
+   * @generated
+   */
+  void setRole(RouteRole value);
 
 } // Route

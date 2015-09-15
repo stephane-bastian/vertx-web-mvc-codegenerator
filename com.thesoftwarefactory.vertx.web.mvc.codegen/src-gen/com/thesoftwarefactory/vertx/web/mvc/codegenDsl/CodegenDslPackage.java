@@ -123,13 +123,31 @@ public interface CodegenDslPackage extends EPackage
   int ROUTE__HANDLER = 2;
 
   /**
+   * The feature id for the '<em><b>Permission</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROUTE__PERMISSION = 3;
+
+  /**
+   * The feature id for the '<em><b>Role</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROUTE__ROLE = 4;
+
+  /**
    * The number of structural features of the '<em>Route</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ROUTE_FEATURE_COUNT = 3;
+  int ROUTE_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.impl.RoutePathImpl <em>Route Path</em>}' class.
@@ -280,6 +298,62 @@ public interface CodegenDslPackage extends EPackage
   int PARAMETER_DEFAULT_VALUE_FEATURE_COUNT = 3;
 
   /**
+   * The meta object id for the '{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.impl.RoutePermissionImpl <em>Route Permission</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.thesoftwarefactory.vertx.web.mvc.codegenDsl.impl.RoutePermissionImpl
+   * @see com.thesoftwarefactory.vertx.web.mvc.codegenDsl.impl.CodegenDslPackageImpl#getRoutePermission()
+   * @generated
+   */
+  int ROUTE_PERMISSION = 6;
+
+  /**
+   * The feature id for the '<em><b>Permission</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROUTE_PERMISSION__PERMISSION = 0;
+
+  /**
+   * The number of structural features of the '<em>Route Permission</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROUTE_PERMISSION_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.impl.RouteRoleImpl <em>Route Role</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.thesoftwarefactory.vertx.web.mvc.codegenDsl.impl.RouteRoleImpl
+   * @see com.thesoftwarefactory.vertx.web.mvc.codegenDsl.impl.CodegenDslPackageImpl#getRouteRole()
+   * @generated
+   */
+  int ROUTE_ROLE = 7;
+
+  /**
+   * The feature id for the '<em><b>Role</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROUTE_ROLE__ROLE = 0;
+
+  /**
+   * The number of structural features of the '<em>Route Role</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROUTE_ROLE_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RouteVerb <em>Route Verb</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -287,7 +361,7 @@ public interface CodegenDslPackage extends EPackage
    * @see com.thesoftwarefactory.vertx.web.mvc.codegenDsl.impl.CodegenDslPackageImpl#getRouteVerb()
    * @generated
    */
-  int ROUTE_VERB = 6;
+  int ROUTE_VERB = 8;
 
 
   /**
@@ -353,6 +427,28 @@ public interface CodegenDslPackage extends EPackage
    * @generated
    */
   EReference getRoute_Handler();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.Route#getPermission <em>Permission</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Permission</em>'.
+   * @see com.thesoftwarefactory.vertx.web.mvc.codegenDsl.Route#getPermission()
+   * @see #getRoute()
+   * @generated
+   */
+  EReference getRoute_Permission();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.Route#getRole <em>Role</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Role</em>'.
+   * @see com.thesoftwarefactory.vertx.web.mvc.codegenDsl.Route#getRole()
+   * @see #getRoute()
+   * @generated
+   */
+  EReference getRoute_Role();
 
   /**
    * Returns the meta object for class '{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RoutePath <em>Route Path</em>}'.
@@ -483,6 +579,48 @@ public interface CodegenDslPackage extends EPackage
   EAttribute getParameterDefaultValue_Value();
 
   /**
+   * Returns the meta object for class '{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RoutePermission <em>Route Permission</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Route Permission</em>'.
+   * @see com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RoutePermission
+   * @generated
+   */
+  EClass getRoutePermission();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RoutePermission#getPermission <em>Permission</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Permission</em>'.
+   * @see com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RoutePermission#getPermission()
+   * @see #getRoutePermission()
+   * @generated
+   */
+  EAttribute getRoutePermission_Permission();
+
+  /**
+   * Returns the meta object for class '{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RouteRole <em>Route Role</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Route Role</em>'.
+   * @see com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RouteRole
+   * @generated
+   */
+  EClass getRouteRole();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RouteRole#getRole <em>Role</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Role</em>'.
+   * @see com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RouteRole#getRole()
+   * @see #getRouteRole()
+   * @generated
+   */
+  EAttribute getRouteRole_Role();
+
+  /**
    * Returns the meta object for enum '{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RouteVerb <em>Route Verb</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -566,6 +704,22 @@ public interface CodegenDslPackage extends EPackage
      * @generated
      */
     EReference ROUTE__HANDLER = eINSTANCE.getRoute_Handler();
+
+    /**
+     * The meta object literal for the '<em><b>Permission</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ROUTE__PERMISSION = eINSTANCE.getRoute_Permission();
+
+    /**
+     * The meta object literal for the '<em><b>Role</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ROUTE__ROLE = eINSTANCE.getRoute_Role();
 
     /**
      * The meta object literal for the '{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.impl.RoutePathImpl <em>Route Path</em>}' class.
@@ -670,6 +824,42 @@ public interface CodegenDslPackage extends EPackage
      * @generated
      */
     EAttribute PARAMETER_DEFAULT_VALUE__VALUE = eINSTANCE.getParameterDefaultValue_Value();
+
+    /**
+     * The meta object literal for the '{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.impl.RoutePermissionImpl <em>Route Permission</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.thesoftwarefactory.vertx.web.mvc.codegenDsl.impl.RoutePermissionImpl
+     * @see com.thesoftwarefactory.vertx.web.mvc.codegenDsl.impl.CodegenDslPackageImpl#getRoutePermission()
+     * @generated
+     */
+    EClass ROUTE_PERMISSION = eINSTANCE.getRoutePermission();
+
+    /**
+     * The meta object literal for the '<em><b>Permission</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ROUTE_PERMISSION__PERMISSION = eINSTANCE.getRoutePermission_Permission();
+
+    /**
+     * The meta object literal for the '{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.impl.RouteRoleImpl <em>Route Role</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.thesoftwarefactory.vertx.web.mvc.codegenDsl.impl.RouteRoleImpl
+     * @see com.thesoftwarefactory.vertx.web.mvc.codegenDsl.impl.CodegenDslPackageImpl#getRouteRole()
+     * @generated
+     */
+    EClass ROUTE_ROLE = eINSTANCE.getRouteRole();
+
+    /**
+     * The meta object literal for the '<em><b>Role</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ROUTE_ROLE__ROLE = eINSTANCE.getRouteRole_Role();
 
     /**
      * The meta object literal for the '{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RouteVerb <em>Route Verb</em>}' enum.

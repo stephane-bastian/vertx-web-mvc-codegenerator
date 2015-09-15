@@ -12,6 +12,10 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="handler" eType="#//RouteHandler"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="permission" eType="#//RoutePermission"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="role" eType="#//RouteRole"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="RouteVerb">
     <eLiterals name="GET" literal="GET"/>
@@ -38,5 +42,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="new" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="null" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RoutePermission">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="permission" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RouteRole">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="role" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

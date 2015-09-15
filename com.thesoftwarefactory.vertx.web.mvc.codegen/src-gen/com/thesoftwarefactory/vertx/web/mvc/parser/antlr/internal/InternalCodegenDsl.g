@@ -66,16 +66,23 @@ import com.thesoftwarefactory.vertx.web.mvc.services.CodegenDslGrammarAccess;
 
 // Entry rule entryRuleModel
 entryRuleModel returns [EObject current=null] 
+	@init { 
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_ROUTE_COMMENT");
+	}
 	:
 	{ newCompositeNode(grammarAccess.getModelRule()); }
 	 iv_ruleModel=ruleModel 
 	 { $current=$iv_ruleModel.current; } 
 	 EOF 
 ;
+finally {
+	myHiddenTokenState.restore();
+}
 
 // Rule Model
 ruleModel returns [EObject current=null] 
     @init { enterRule(); 
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_ROUTE_COMMENT");
     }
     @after { leaveRule(); }:
 (
@@ -98,6 +105,9 @@ ruleModel returns [EObject current=null]
 )
 )*
 ;
+finally {
+	myHiddenTokenState.restore();
+}
 
 
 
@@ -171,9 +181,45 @@ ruleRoute returns [EObject current=null]
 	    }
 
 )
-)	otherlv_3=';' 
+)(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getRouteAccess().getPermissionRoutePermissionParserRuleCall_3_0()); 
+	    }
+		lv_permission_3_0=ruleRoutePermission		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getRouteRule());
+	        }
+       		set(
+       			$current, 
+       			"permission",
+        		lv_permission_3_0, 
+        		"RoutePermission");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getRouteAccess().getRoleRouteRoleParserRuleCall_4_0()); 
+	    }
+		lv_role_4_0=ruleRouteRole		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getRouteRule());
+	        }
+       		set(
+       			$current, 
+       			"role",
+        		lv_role_4_0, 
+        		"RouteRole");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?	otherlv_5=';' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getRouteAccess().getSemicolonKeyword_3());
+    	newLeafNode(otherlv_5, grammarAccess.getRouteAccess().getSemicolonKeyword_5());
     }
 )
 ;
@@ -196,11 +242,17 @@ ruleRoutePath returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
+((
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getRoutePathAccess().getRoutePathAction_0(),
+            $current);
+    }
+)(
 (
-(
-		lv_value_0_0=RULE_VALID_PATH
+		lv_value_1_0=RULE_VALID_PATH
 		{
-			newLeafNode(lv_value_0_0, grammarAccess.getRoutePathAccess().getValueVALID_PATHTerminalRuleCall_0()); 
+			newLeafNode(lv_value_1_0, grammarAccess.getRoutePathAccess().getValueVALID_PATHTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -209,12 +261,12 @@ ruleRoutePath returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"value",
-        		lv_value_0_0, 
+        		lv_value_1_0, 
         		"VALID_PATH");
 	    }
 
 )
-)
+))
 ;
 
 
@@ -476,6 +528,92 @@ ruleRouteHandlerName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRu
     }
 )+)
     ;
+
+
+
+
+
+// Entry rule entryRuleRoutePermission
+entryRuleRoutePermission returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getRoutePermissionRule()); }
+	 iv_ruleRoutePermission=ruleRoutePermission 
+	 { $current=$iv_ruleRoutePermission.current; } 
+	 EOF 
+;
+
+// Rule RoutePermission
+ruleRoutePermission returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='PERMISSION' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getRoutePermissionAccess().getPERMISSIONKeyword_0());
+    }
+(
+(
+		lv_permission_1_0=RULE_STRING
+		{
+			newLeafNode(lv_permission_1_0, grammarAccess.getRoutePermissionAccess().getPermissionSTRINGTerminalRuleCall_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getRoutePermissionRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"permission",
+        		lv_permission_1_0, 
+        		"STRING");
+	    }
+
+)
+))
+;
+
+
+
+
+
+// Entry rule entryRuleRouteRole
+entryRuleRouteRole returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getRouteRoleRule()); }
+	 iv_ruleRouteRole=ruleRouteRole 
+	 { $current=$iv_ruleRouteRole.current; } 
+	 EOF 
+;
+
+// Rule RouteRole
+ruleRouteRole returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='ROLE' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getRouteRoleAccess().getROLEKeyword_0());
+    }
+(
+(
+		lv_role_1_0=RULE_STRING
+		{
+			newLeafNode(lv_role_1_0, grammarAccess.getRouteRoleAccess().getRoleSTRINGTerminalRuleCall_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getRouteRoleRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"role",
+        		lv_role_1_0, 
+        		"STRING");
+	    }
+
+)
+))
+;
 
 
 
@@ -6481,6 +6619,8 @@ ruleRouteVerb returns [Enumerator current=null]
 
 
 RULE_VALID_PATH : '/' ( options {greedy=false;} : . )*(' '|'\t'|'\r'|'\n');
+
+RULE_ROUTE_COMMENT : '#' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
 RULE_HEX : ('0x'|'0X') ('0'..'9'|'a'..'f'|'A'..'F'|'_')+ ('#' (('b'|'B') ('i'|'I')|('l'|'L')))?;
 

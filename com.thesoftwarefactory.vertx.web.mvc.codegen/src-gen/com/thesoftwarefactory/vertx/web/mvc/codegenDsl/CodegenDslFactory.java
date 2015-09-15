@@ -77,6 +77,24 @@ public interface CodegenDslFactory extends EFactory
   ParameterDefaultValue createParameterDefaultValue();
 
   /**
+   * Returns a new object of class '<em>Route Permission</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Route Permission</em>'.
+   * @generated
+   */
+  RoutePermission createRoutePermission();
+
+  /**
+   * Returns a new object of class '<em>Route Role</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Route Role</em>'.
+   * @generated
+   */
+  RouteRole createRouteRole();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

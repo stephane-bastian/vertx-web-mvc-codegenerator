@@ -105,6 +105,16 @@ public class CodegenDslAdapterFactory extends AdapterFactoryImpl
         return createParameterDefaultValueAdapter();
       }
       @Override
+      public Adapter caseRoutePermission(RoutePermission object)
+      {
+        return createRoutePermissionAdapter();
+      }
+      @Override
+      public Adapter caseRouteRole(RouteRole object)
+      {
+        return createRouteRoleAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -212,6 +222,36 @@ public class CodegenDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createParameterDefaultValueAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RoutePermission <em>Route Permission</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RoutePermission
+   * @generated
+   */
+  public Adapter createRoutePermissionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RouteRole <em>Route Role</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RouteRole
+   * @generated
+   */
+  public Adapter createRouteRoleAdapter()
   {
     return null;
   }

@@ -2,11 +2,11 @@ grammar com.thesoftwarefactory.vertx.web.mvc.CodegenDsl with org.eclipse.xtext.x
               
 generate codegenDsl "http://www.thesoftwarefactory.com/vertx/web/mvc/CodegenDsl"
 
-Model:
+Model hidden(WS, ROUTE_COMMENT):
 	routes+=Route*;
 
 Route:
-	verb=RouteVerb path=RoutePath handler=RouteHandler';';
+	verb=RouteVerb path=RoutePath handler=RouteHandler (permission=RoutePermission)? (role=RouteRole)? ';';
 
 enum RouteVerb:
 	GET='GET' |
@@ -17,8 +17,9 @@ enum RouteVerb:
 	OPTIONS='OPTIONS';
 
 RoutePath:
+	{RoutePath}
 	value=VALID_PATH;
-
+	
 RouteHandler:
 	name=RouteHandlerName '(' (parameters+=Parameter (',' parameters+=Parameter)*)? ')';
 
@@ -31,5 +32,14 @@ ParameterDefaultValue:
 RouteHandlerName:
 	ID ('.' ID)+;
 	
+RoutePermission:
+	('PERMISSION' permission=STRING);
+
+RouteRole:
+	('ROLE' role=STRING);
+
 terminal VALID_PATH:
 	'/' -> (' '|'\t'|'\r'|'\n');
+	
+terminal ROUTE_COMMENT:
+	'#' !('\n'|'\r')* ('\r'? '\n')?;

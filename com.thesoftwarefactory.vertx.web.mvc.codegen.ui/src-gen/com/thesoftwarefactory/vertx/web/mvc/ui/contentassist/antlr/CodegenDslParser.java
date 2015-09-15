@@ -79,6 +79,7 @@ public class CodegenDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getXImportDeclarationAccess().getAlternatives_1_0_3(), "rule__XImportDeclaration__Alternatives_1_0_3");
 					put(grammarAccess.getRouteVerbAccess().getAlternatives(), "rule__RouteVerb__Alternatives");
 					put(grammarAccess.getRouteAccess().getGroup(), "rule__Route__Group__0");
+					put(grammarAccess.getRoutePathAccess().getGroup(), "rule__RoutePath__Group__0");
 					put(grammarAccess.getRouteHandlerAccess().getGroup(), "rule__RouteHandler__Group__0");
 					put(grammarAccess.getRouteHandlerAccess().getGroup_2(), "rule__RouteHandler__Group_2__0");
 					put(grammarAccess.getRouteHandlerAccess().getGroup_2_1(), "rule__RouteHandler__Group_2_1__0");
@@ -86,6 +87,8 @@ public class CodegenDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getParameterDefaultValueAccess().getGroup(), "rule__ParameterDefaultValue__Group__0");
 					put(grammarAccess.getRouteHandlerNameAccess().getGroup(), "rule__RouteHandlerName__Group__0");
 					put(grammarAccess.getRouteHandlerNameAccess().getGroup_1(), "rule__RouteHandlerName__Group_1__0");
+					put(grammarAccess.getRoutePermissionAccess().getGroup(), "rule__RoutePermission__Group__0");
+					put(grammarAccess.getRouteRoleAccess().getGroup(), "rule__RouteRole__Group__0");
 					put(grammarAccess.getXAssignmentAccess().getGroup_0(), "rule__XAssignment__Group_0__0");
 					put(grammarAccess.getXAssignmentAccess().getGroup_1(), "rule__XAssignment__Group_1__0");
 					put(grammarAccess.getXAssignmentAccess().getGroup_1_1(), "rule__XAssignment__Group_1_1__0");
@@ -269,7 +272,9 @@ public class CodegenDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRouteAccess().getVerbAssignment_0(), "rule__Route__VerbAssignment_0");
 					put(grammarAccess.getRouteAccess().getPathAssignment_1(), "rule__Route__PathAssignment_1");
 					put(grammarAccess.getRouteAccess().getHandlerAssignment_2(), "rule__Route__HandlerAssignment_2");
-					put(grammarAccess.getRoutePathAccess().getValueAssignment(), "rule__RoutePath__ValueAssignment");
+					put(grammarAccess.getRouteAccess().getPermissionAssignment_3(), "rule__Route__PermissionAssignment_3");
+					put(grammarAccess.getRouteAccess().getRoleAssignment_4(), "rule__Route__RoleAssignment_4");
+					put(grammarAccess.getRoutePathAccess().getValueAssignment_1(), "rule__RoutePath__ValueAssignment_1");
 					put(grammarAccess.getRouteHandlerAccess().getNameAssignment_0(), "rule__RouteHandler__NameAssignment_0");
 					put(grammarAccess.getRouteHandlerAccess().getParametersAssignment_2_0(), "rule__RouteHandler__ParametersAssignment_2_0");
 					put(grammarAccess.getRouteHandlerAccess().getParametersAssignment_2_1_1(), "rule__RouteHandler__ParametersAssignment_2_1_1");
@@ -278,6 +283,8 @@ public class CodegenDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getParameterDefaultValueAccess().getNewAssignment_1_0(), "rule__ParameterDefaultValue__NewAssignment_1_0");
 					put(grammarAccess.getParameterDefaultValueAccess().getNullAssignment_1_1(), "rule__ParameterDefaultValue__NullAssignment_1_1");
 					put(grammarAccess.getParameterDefaultValueAccess().getValueAssignment_1_2(), "rule__ParameterDefaultValue__ValueAssignment_1_2");
+					put(grammarAccess.getRoutePermissionAccess().getPermissionAssignment_1(), "rule__RoutePermission__PermissionAssignment_1");
+					put(grammarAccess.getRouteRoleAccess().getRoleAssignment_1(), "rule__RouteRole__RoleAssignment_1");
 					put(grammarAccess.getXAssignmentAccess().getFeatureAssignment_0_1(), "rule__XAssignment__FeatureAssignment_0_1");
 					put(grammarAccess.getXAssignmentAccess().getValueAssignment_0_3(), "rule__XAssignment__ValueAssignment_0_3");
 					put(grammarAccess.getXAssignmentAccess().getFeatureAssignment_1_1_0_0_1(), "rule__XAssignment__FeatureAssignment_1_1_0_0_1");

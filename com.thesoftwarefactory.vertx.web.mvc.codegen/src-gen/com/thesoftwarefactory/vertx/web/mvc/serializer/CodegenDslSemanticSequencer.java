@@ -12,6 +12,8 @@ import com.thesoftwarefactory.vertx.web.mvc.codegenDsl.ParameterDefaultValue;
 import com.thesoftwarefactory.vertx.web.mvc.codegenDsl.Route;
 import com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RouteHandler;
 import com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RoutePath;
+import com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RoutePermission;
+import com.thesoftwarefactory.vertx.web.mvc.codegenDsl.RouteRole;
 import com.thesoftwarefactory.vertx.web.mvc.services.CodegenDslGrammarAccess;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.common.types.JvmFormalParameter;
@@ -96,6 +98,12 @@ public class CodegenDslSemanticSequencer extends XbaseSemanticSequencer {
 				return; 
 			case CodegenDslPackage.ROUTE_PATH:
 				sequence_RoutePath(context, (RoutePath) semanticObject); 
+				return; 
+			case CodegenDslPackage.ROUTE_PERMISSION:
+				sequence_RoutePermission(context, (RoutePermission) semanticObject); 
+				return; 
+			case CodegenDslPackage.ROUTE_ROLE:
+				sequence_RouteRole(context, (RouteRole) semanticObject); 
 				return; 
 			}
 		else if(semanticObject.eClass().getEPackage() == TypesPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
@@ -374,29 +382,48 @@ public class CodegenDslSemanticSequencer extends XbaseSemanticSequencer {
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getRoutePathAccess().getValueVALID_PATHTerminalRuleCall_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getRoutePathAccess().getValueVALID_PATHTerminalRuleCall_1_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (verb=RouteVerb path=RoutePath handler=RouteHandler)
+	 *     permission=STRING
 	 */
-	protected void sequence_Route(EObject context, Route semanticObject) {
+	protected void sequence_RoutePermission(EObject context, RoutePermission semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, CodegenDslPackage.Literals.ROUTE__VERB) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CodegenDslPackage.Literals.ROUTE__VERB));
-			if(transientValues.isValueTransient(semanticObject, CodegenDslPackage.Literals.ROUTE__PATH) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CodegenDslPackage.Literals.ROUTE__PATH));
-			if(transientValues.isValueTransient(semanticObject, CodegenDslPackage.Literals.ROUTE__HANDLER) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CodegenDslPackage.Literals.ROUTE__HANDLER));
+			if(transientValues.isValueTransient(semanticObject, CodegenDslPackage.Literals.ROUTE_PERMISSION__PERMISSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CodegenDslPackage.Literals.ROUTE_PERMISSION__PERMISSION));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getRouteAccess().getVerbRouteVerbEnumRuleCall_0_0(), semanticObject.getVerb());
-		feeder.accept(grammarAccess.getRouteAccess().getPathRoutePathParserRuleCall_1_0(), semanticObject.getPath());
-		feeder.accept(grammarAccess.getRouteAccess().getHandlerRouteHandlerParserRuleCall_2_0(), semanticObject.getHandler());
+		feeder.accept(grammarAccess.getRoutePermissionAccess().getPermissionSTRINGTerminalRuleCall_1_0(), semanticObject.getPermission());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     role=STRING
+	 */
+	protected void sequence_RouteRole(EObject context, RouteRole semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, CodegenDslPackage.Literals.ROUTE_ROLE__ROLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CodegenDslPackage.Literals.ROUTE_ROLE__ROLE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getRouteRoleAccess().getRoleSTRINGTerminalRuleCall_1_0(), semanticObject.getRole());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (verb=RouteVerb path=RoutePath handler=RouteHandler permission=RoutePermission? role=RouteRole?)
+	 */
+	protected void sequence_Route(EObject context, Route semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 }

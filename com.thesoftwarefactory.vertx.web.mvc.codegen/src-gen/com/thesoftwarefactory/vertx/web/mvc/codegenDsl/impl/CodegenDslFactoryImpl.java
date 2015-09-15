@@ -71,6 +71,8 @@ public class CodegenDslFactoryImpl extends EFactoryImpl implements CodegenDslFac
       case CodegenDslPackage.ROUTE_HANDLER: return createRouteHandler();
       case CodegenDslPackage.PARAMETER: return createParameter();
       case CodegenDslPackage.PARAMETER_DEFAULT_VALUE: return createParameterDefaultValue();
+      case CodegenDslPackage.ROUTE_PERMISSION: return createRoutePermission();
+      case CodegenDslPackage.ROUTE_ROLE: return createRouteRole();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -174,6 +176,28 @@ public class CodegenDslFactoryImpl extends EFactoryImpl implements CodegenDslFac
   {
     ParameterDefaultValueImpl parameterDefaultValue = new ParameterDefaultValueImpl();
     return parameterDefaultValue;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RoutePermission createRoutePermission()
+  {
+    RoutePermissionImpl routePermission = new RoutePermissionImpl();
+    return routePermission;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RouteRole createRouteRole()
+  {
+    RouteRoleImpl routeRole = new RouteRoleImpl();
+    return routeRole;
   }
 
   /**

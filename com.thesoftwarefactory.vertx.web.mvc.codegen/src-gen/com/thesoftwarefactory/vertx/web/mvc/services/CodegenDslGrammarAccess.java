@@ -24,7 +24,7 @@ public class CodegenDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRoutesAssignment = (Assignment)rule.eContents().get(1);
 		private final RuleCall cRoutesRouteParserRuleCall_0 = (RuleCall)cRoutesAssignment.eContents().get(0);
 		
-		//Model:
+		//Model hidden(WS, ROUTE_COMMENT):
 		//	routes+=Route*;
 		@Override public ParserRule getRule() { return rule; }
 
@@ -44,13 +44,17 @@ public class CodegenDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPathRoutePathParserRuleCall_1_0 = (RuleCall)cPathAssignment_1.eContents().get(0);
 		private final Assignment cHandlerAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cHandlerRouteHandlerParserRuleCall_2_0 = (RuleCall)cHandlerAssignment_2.eContents().get(0);
-		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cPermissionAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cPermissionRoutePermissionParserRuleCall_3_0 = (RuleCall)cPermissionAssignment_3.eContents().get(0);
+		private final Assignment cRoleAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cRoleRouteRoleParserRuleCall_4_0 = (RuleCall)cRoleAssignment_4.eContents().get(0);
+		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Route:
-		//	verb=RouteVerb path=RoutePath handler=RouteHandler ";";
+		//	verb=RouteVerb path=RoutePath handler=RouteHandler permission=RoutePermission? role=RouteRole? ";";
 		@Override public ParserRule getRule() { return rule; }
 
-		//verb=RouteVerb path=RoutePath handler=RouteHandler ";"
+		//verb=RouteVerb path=RoutePath handler=RouteHandler permission=RoutePermission? role=RouteRole? ";"
 		public Group getGroup() { return cGroup; }
 
 		//verb=RouteVerb
@@ -71,24 +75,44 @@ public class CodegenDslGrammarAccess extends AbstractGrammarElementFinder {
 		//RouteHandler
 		public RuleCall getHandlerRouteHandlerParserRuleCall_2_0() { return cHandlerRouteHandlerParserRuleCall_2_0; }
 
+		//permission=RoutePermission?
+		public Assignment getPermissionAssignment_3() { return cPermissionAssignment_3; }
+
+		//RoutePermission
+		public RuleCall getPermissionRoutePermissionParserRuleCall_3_0() { return cPermissionRoutePermissionParserRuleCall_3_0; }
+
+		//role=RouteRole?
+		public Assignment getRoleAssignment_4() { return cRoleAssignment_4; }
+
+		//RouteRole
+		public RuleCall getRoleRouteRoleParserRuleCall_4_0() { return cRoleRouteRoleParserRuleCall_4_0; }
+
 		//";"
-		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
 	}
 
 	public class RoutePathElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "RoutePath");
-		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cValueVALID_PATHTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cRoutePathAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueVALID_PATHTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
 		//RoutePath:
-		//	value=VALID_PATH;
+		//	{RoutePath} value=VALID_PATH;
 		@Override public ParserRule getRule() { return rule; }
 
+		//{RoutePath} value=VALID_PATH
+		public Group getGroup() { return cGroup; }
+
+		//{RoutePath}
+		public Action getRoutePathAction_0() { return cRoutePathAction_0; }
+
 		//value=VALID_PATH
-		public Assignment getValueAssignment() { return cValueAssignment; }
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
 
 		//VALID_PATH
-		public RuleCall getValueVALID_PATHTerminalRuleCall_0() { return cValueVALID_PATHTerminalRuleCall_0; }
+		public RuleCall getValueVALID_PATHTerminalRuleCall_1_0() { return cValueVALID_PATHTerminalRuleCall_1_0; }
 	}
 
 	public class RouteHandlerElements extends AbstractParserRuleElementFinder {
@@ -246,6 +270,54 @@ public class CodegenDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
 	}
+
+	public class RoutePermissionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "RoutePermission");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPERMISSIONKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cPermissionAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cPermissionSTRINGTerminalRuleCall_1_0 = (RuleCall)cPermissionAssignment_1.eContents().get(0);
+		
+		//RoutePermission:
+		//	"PERMISSION" permission=STRING;
+		@Override public ParserRule getRule() { return rule; }
+
+		//"PERMISSION" permission=STRING
+		public Group getGroup() { return cGroup; }
+
+		//"PERMISSION"
+		public Keyword getPERMISSIONKeyword_0() { return cPERMISSIONKeyword_0; }
+
+		//permission=STRING
+		public Assignment getPermissionAssignment_1() { return cPermissionAssignment_1; }
+
+		//STRING
+		public RuleCall getPermissionSTRINGTerminalRuleCall_1_0() { return cPermissionSTRINGTerminalRuleCall_1_0; }
+	}
+
+	public class RouteRoleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "RouteRole");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cROLEKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cRoleAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cRoleSTRINGTerminalRuleCall_1_0 = (RuleCall)cRoleAssignment_1.eContents().get(0);
+		
+		//RouteRole:
+		//	"ROLE" role=STRING;
+		@Override public ParserRule getRule() { return rule; }
+
+		//"ROLE" role=STRING
+		public Group getGroup() { return cGroup; }
+
+		//"ROLE"
+		public Keyword getROLEKeyword_0() { return cROLEKeyword_0; }
+
+		//role=STRING
+		public Assignment getRoleAssignment_1() { return cRoleAssignment_1; }
+
+		//STRING
+		public RuleCall getRoleSTRINGTerminalRuleCall_1_0() { return cRoleSTRINGTerminalRuleCall_1_0; }
+	}
 	
 	
 	public class RouteVerbElements extends AbstractEnumRuleElementFinder {
@@ -316,7 +388,10 @@ public class CodegenDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final ParameterElements pParameter;
 	private final ParameterDefaultValueElements pParameterDefaultValue;
 	private final RouteHandlerNameElements pRouteHandlerName;
+	private final RoutePermissionElements pRoutePermission;
+	private final RouteRoleElements pRouteRole;
 	private final TerminalRule tVALID_PATH;
+	private final TerminalRule tROUTE_COMMENT;
 	
 	private final Grammar grammar;
 
@@ -335,7 +410,10 @@ public class CodegenDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pParameter = new ParameterElements();
 		this.pParameterDefaultValue = new ParameterDefaultValueElements();
 		this.pRouteHandlerName = new RouteHandlerNameElements();
+		this.pRoutePermission = new RoutePermissionElements();
+		this.pRouteRole = new RouteRoleElements();
 		this.tVALID_PATH = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "VALID_PATH");
+		this.tROUTE_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ROUTE_COMMENT");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -365,7 +443,7 @@ public class CodegenDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	//Model:
+	//Model hidden(WS, ROUTE_COMMENT):
 	//	routes+=Route*;
 	public ModelElements getModelAccess() {
 		return pModel;
@@ -376,7 +454,7 @@ public class CodegenDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Route:
-	//	verb=RouteVerb path=RoutePath handler=RouteHandler ";";
+	//	verb=RouteVerb path=RoutePath handler=RouteHandler permission=RoutePermission? role=RouteRole? ";";
 	public RouteElements getRouteAccess() {
 		return pRoute;
 	}
@@ -396,7 +474,7 @@ public class CodegenDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//RoutePath:
-	//	value=VALID_PATH;
+	//	{RoutePath} value=VALID_PATH;
 	public RoutePathElements getRoutePathAccess() {
 		return pRoutePath;
 	}
@@ -445,10 +523,36 @@ public class CodegenDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getRouteHandlerNameAccess().getRule();
 	}
 
+	//RoutePermission:
+	//	"PERMISSION" permission=STRING;
+	public RoutePermissionElements getRoutePermissionAccess() {
+		return pRoutePermission;
+	}
+	
+	public ParserRule getRoutePermissionRule() {
+		return getRoutePermissionAccess().getRule();
+	}
+
+	//RouteRole:
+	//	"ROLE" role=STRING;
+	public RouteRoleElements getRouteRoleAccess() {
+		return pRouteRole;
+	}
+	
+	public ParserRule getRouteRoleRule() {
+		return getRouteRoleAccess().getRule();
+	}
+
 	//terminal VALID_PATH:
 	//	"/"->(" " | "\t" | "\r" | "\n");
 	public TerminalRule getVALID_PATHRule() {
 		return tVALID_PATH;
+	} 
+
+	//terminal ROUTE_COMMENT:
+	//	"#" !("\n" | "\r")* ("\r"? "\n")?;
+	public TerminalRule getROUTE_COMMENTRule() {
+		return tROUTE_COMMENT;
 	} 
 
 	//XExpression:
