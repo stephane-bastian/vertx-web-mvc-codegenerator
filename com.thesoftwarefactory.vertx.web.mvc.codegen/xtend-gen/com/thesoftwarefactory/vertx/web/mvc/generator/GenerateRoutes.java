@@ -365,18 +365,32 @@ public class GenerateRoutes {
           _builder.newLine();
         }
       }
-      _builder.append("\t");
       _builder.newLine();
       {
         for(final Route route_1 : routes) {
           _builder.append("\t");
-          final RouteMethodHandler methodHandler_1 = RoutingHelper.getMethodHandler(route_1, typeReferenceBuilder);
+          _builder.append("public final static String ");
+          String _staticRouteVarName = GenerateRoutes.getStaticRouteVarName(route_1);
+          _builder.append(_staticRouteVarName, "\t");
+          _builder.append(" = \"");
+          String _trimPath = RoutingHelper.getTrimPath(route_1);
+          _builder.append(_trimPath, "\t");
+          _builder.append("\";");
+          _builder.newLineIfNotEmpty();
+        }
+      }
+      _builder.append("\t");
+      _builder.newLine();
+      {
+        for(final Route route_2 : routes) {
+          _builder.append("\t");
+          final RouteMethodHandler methodHandler_1 = RoutingHelper.getMethodHandler(route_2, typeReferenceBuilder);
           _builder.newLineIfNotEmpty();
           _builder.append("\t");
           _builder.newLine();
           _builder.append("\t");
           _builder.append("public static class ");
-          RouteHandler _handler_4 = route_1.getHandler();
+          RouteHandler _handler_4 = route_2.getHandler();
           String _methodName = RoutingHelper.getMethodName(_handler_4);
           String _firstUpper = RoutingHelper.toFirstUpper(_methodName);
           _builder.append(_firstUpper, "\t");
@@ -403,7 +417,7 @@ public class GenerateRoutes {
           _builder.append("\t");
           _builder.append("\t");
           _builder.append("public ");
-          String _uriBuilderClassName = RoutingHelper.getUriBuilderClassName(route_1);
+          String _uriBuilderClassName = RoutingHelper.getUriBuilderClassName(route_2);
           _builder.append(_uriBuilderClassName, "\t\t");
           _builder.append("(");
           {
@@ -473,39 +487,29 @@ public class GenerateRoutes {
             List<ParameterExt> _routeParameters_1 = methodHandler_1.getRouteParameters();
             for(final ParameterExt routeParameter_6 : _routeParameters_1) {
               {
-                boolean _isPrimitive = routeParameter_6.isPrimitive();
-                boolean _not = (!_isPrimitive);
+                List<String> _pathParameterNames = methodHandler_1.getPathParameterNames();
+                String _name_5 = routeParameter_6.getName();
+                boolean _contains = _pathParameterNames.contains(_name_5);
+                boolean _not = (!_contains);
                 if (_not) {
                   _builder.append("\t");
                   _builder.append("\t\t");
-                  _builder.append("if (");
-                  String _name_5 = routeParameter_6.getName();
-                  _builder.append(_name_5, "\t\t\t");
-                  _builder.append("!=null) {");
-                  _builder.newLineIfNotEmpty();
-                  _builder.append("\t");
-                  _builder.append("\t\t");
-                  _builder.append("\t");
-                  String _actionHandlerClassName_3 = RoutingHelper.getActionHandlerClassName(route_1);
-                  _builder.append(_actionHandlerClassName_3, "\t\t\t\t");
+                  String _actionHandlerClassName_3 = RoutingHelper.getActionHandlerClassName(route_2);
+                  _builder.append(_actionHandlerClassName_3, "\t\t\t");
                   _builder.append(".");
                   String _binderName_5 = RoutingHelper.getBinderName(routeParameter_6);
-                  _builder.append(_binderName_5, "\t\t\t\t");
+                  _builder.append(_binderName_5, "\t\t\t");
                   _builder.append(".bindToUrl(");
-                  String _actionHandlerClassName_4 = RoutingHelper.getActionHandlerClassName(route_1);
-                  _builder.append(_actionHandlerClassName_4, "\t\t\t\t");
+                  String _actionHandlerClassName_4 = RoutingHelper.getActionHandlerClassName(route_2);
+                  _builder.append(_actionHandlerClassName_4, "\t\t\t");
                   _builder.append(".");
                   String _bindingInfoName_1 = RoutingHelper.getBindingInfoName(routeParameter_6);
-                  _builder.append(_bindingInfoName_1, "\t\t\t\t");
+                  _builder.append(_bindingInfoName_1, "\t\t\t");
                   _builder.append(", ");
                   String _name_6 = routeParameter_6.getName();
-                  _builder.append(_name_6, "\t\t\t\t");
+                  _builder.append(_name_6, "\t\t\t");
                   _builder.append(", result);");
                   _builder.newLineIfNotEmpty();
-                  _builder.append("\t");
-                  _builder.append("\t\t");
-                  _builder.append("}");
-                  _builder.newLine();
                 }
               }
             }
@@ -527,19 +531,17 @@ public class GenerateRoutes {
           _builder.newLine();
           _builder.append("\t");
           _builder.append("\t\t");
-          _builder.append("return \"");
-          String _trimPath = RoutingHelper.getTrimPath(route_1);
-          _builder.append(_trimPath, "\t\t\t");
-          _builder.append("\"");
+          _builder.append("return ");
+          String _staticRouteVarName_1 = GenerateRoutes.getStaticRouteVarName(route_2);
+          _builder.append(_staticRouteVarName_1, "\t\t\t");
           {
             List<ParameterExt> _routeParameters_2 = methodHandler_1.getRouteParameters();
             for(final ParameterExt routeParameter_7 : _routeParameters_2) {
               {
-                String _trimPath_1 = RoutingHelper.getTrimPath(route_1);
+                List<String> _pathParameterNames_1 = methodHandler_1.getPathParameterNames();
                 String _name_7 = routeParameter_7.getName();
-                String _plus = ("/:" + _name_7);
-                boolean _contains = _trimPath_1.contains(_plus);
-                if (_contains) {
+                boolean _contains_1 = _pathParameterNames_1.contains(_name_7);
+                if (_contains_1) {
                   _builder.append(".replace");
                   _builder.append("(\"/:");
                   String _name_8 = routeParameter_7.getName();
@@ -567,7 +569,7 @@ public class GenerateRoutes {
               _builder.append("\t");
               _builder.append("\t");
               _builder.append("public ");
-              String _uriBuilderClassName_1 = RoutingHelper.getUriBuilderClassName(route_1);
+              String _uriBuilderClassName_1 = RoutingHelper.getUriBuilderClassName(route_2);
               _builder.append(_uriBuilderClassName_1, "\t\t");
               _builder.append(" set");
               String _name_10 = routeParameter_8.getName();
@@ -622,9 +624,9 @@ public class GenerateRoutes {
       }
       _builder.newLine();
       {
-        for(final Route route_2 : routes) {
+        for(final Route route_3 : routes) {
           _builder.append("\t");
-          final RouteMethodHandler methodHandler_2 = RoutingHelper.getMethodHandler(route_2, typeReferenceBuilder);
+          final RouteMethodHandler methodHandler_2 = RoutingHelper.getMethodHandler(route_3, typeReferenceBuilder);
           _builder.newLineIfNotEmpty();
           {
             List<ParameterExt> _optionalRouteParameters_1 = methodHandler_2.getOptionalRouteParameters();
@@ -633,10 +635,10 @@ public class GenerateRoutes {
             if (_greaterThan) {
               _builder.append("\t");
               _builder.append("public final static ");
-              String _uriBuilderClassName_2 = RoutingHelper.getUriBuilderClassName(route_2);
+              String _uriBuilderClassName_2 = RoutingHelper.getUriBuilderClassName(route_3);
               _builder.append(_uriBuilderClassName_2, "\t");
               _builder.append(" ");
-              RouteHandler _handler_5 = route_2.getHandler();
+              RouteHandler _handler_5 = route_3.getHandler();
               String _methodName_1 = RoutingHelper.getMethodName(_handler_5);
               _builder.append(_methodName_1, "\t");
               _builder.append("Url(");
@@ -661,7 +663,7 @@ public class GenerateRoutes {
               _builder.append("\t");
               _builder.append("\t");
               _builder.append("return new ");
-              String _uriBuilderClassName_3 = RoutingHelper.getUriBuilderClassName(route_2);
+              String _uriBuilderClassName_3 = RoutingHelper.getUriBuilderClassName(route_3);
               _builder.append(_uriBuilderClassName_3, "\t\t");
               _builder.append("(");
               {
@@ -685,7 +687,7 @@ public class GenerateRoutes {
             } else {
               _builder.append("\t");
               _builder.append("public final static String ");
-              RouteHandler _handler_6 = route_2.getHandler();
+              RouteHandler _handler_6 = route_3.getHandler();
               String _methodName_2 = RoutingHelper.getMethodName(_handler_6);
               _builder.append(_methodName_2, "\t");
               _builder.append("Url(");
@@ -710,7 +712,7 @@ public class GenerateRoutes {
               _builder.append("\t");
               _builder.append("\t");
               _builder.append("return new ");
-              String _uriBuilderClassName_4 = RoutingHelper.getUriBuilderClassName(route_2);
+              String _uriBuilderClassName_4 = RoutingHelper.getUriBuilderClassName(route_3);
               _builder.append(_uriBuilderClassName_4, "\t\t");
               _builder.append("(");
               {
@@ -815,5 +817,12 @@ public class GenerateRoutes {
       }
     }
     return result;
+  }
+  
+  private static String getStaticRouteVarName(final Route route) {
+    RouteHandler _handler = route.getHandler();
+    String _methodName = RoutingHelper.getMethodName(_handler);
+    String _upperCase = _methodName.toUpperCase();
+    return (_upperCase + "_ROUTE");
   }
 }

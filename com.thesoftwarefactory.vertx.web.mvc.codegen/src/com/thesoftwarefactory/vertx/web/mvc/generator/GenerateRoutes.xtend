@@ -107,6 +107,10 @@ class GenerateRoutes {
 				}
 				
 			«ENDFOR»
+
+			«FOR route: routes»
+				public final static String «getStaticRouteVarName(route)» = "«route.trimPath»";
+			«ENDFOR»
 			
 			«FOR route: routes»
 				«val methodHandler = getMethodHandler(route, typeReferenceBuilder)»
@@ -129,17 +133,15 @@ class GenerateRoutes {
 					public String build() {
 						UriBuilder result = new UriBuilder().setPath(path());
 						«FOR routeParameter: methodHandler.routeParameters»
-							«IF !routeParameter.primitive»
-								if («routeParameter.name»!=null) {
-									«route.actionHandlerClassName».«routeParameter.binderName».bindToUrl(«route.actionHandlerClassName».«routeParameter.bindingInfoName», «routeParameter.name», result);
-								}
+							«IF !methodHandler.pathParameterNames.contains(routeParameter.name)»
+								«route.actionHandlerClassName».«routeParameter.binderName».bindToUrl(«route.actionHandlerClassName».«routeParameter.bindingInfoName», «routeParameter.name», result);
 							«ENDIF»
 						«ENDFOR»
 						return result.toString();
 					}
 					
 					private String path() {
-						return "«route.trimPath»"«FOR routeParameter: methodHandler.routeParameters»«IF route.trimPath.contains("/:" + routeParameter.name)».replace«»("/:«routeParameter.name»", "/" + «routeParameter.name».toString())«ENDIF»«ENDFOR»;
+						return «getStaticRouteVarName(route)»«FOR routeParameter: methodHandler.routeParameters»«IF methodHandler.pathParameterNames.contains(routeParameter.name)».replace«»("/:«routeParameter.name»", "/" + «routeParameter.name».toString())«ENDIF»«ENDFOR»;
 					}
 					
 					«FOR routeParameter: methodHandler.optionalRouteParameters»
@@ -198,5 +200,9 @@ class GenerateRoutes {
 		}
 		return result;
 	}
-		
+
+	def private static String getStaticRouteVarName(Route route) {
+		return RoutingHelper.getMethodName(route.handler).toUpperCase + "_ROUTE";
+	}		
+
 }

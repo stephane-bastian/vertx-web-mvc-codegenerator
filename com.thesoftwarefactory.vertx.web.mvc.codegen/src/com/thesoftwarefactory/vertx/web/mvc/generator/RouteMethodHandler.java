@@ -1,5 +1,6 @@
 package com.thesoftwarefactory.vertx.web.mvc.generator;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -20,6 +21,7 @@ public class RouteMethodHandler {
 
 	private List<ParameterExt> methodParameters;
 	private List<ParameterExt> routeParameters;
+	private List<String> pathParameterNames;
 	private List<ParameterExt> optionalRouteParameters;
 	private List<ParameterExt> constructorParameters;
 	private List<ParameterExt> requiredRouteParameters;
@@ -49,6 +51,19 @@ public class RouteMethodHandler {
 			methodParameters = RoutingHelper.getParametersExt(method, route.getHandler().getParameters());
 		}
 		return methodParameters;
+	}
+	
+	public List<String> getPathParameterNames() {
+		if (pathParameterNames==null) {
+			pathParameterNames = new ArrayList<>();
+			for (String pathSegment: route.getPath().getValue().split("/")) {
+				if (pathSegment.startsWith(":")) {
+					String parameterName = pathSegment.substring(1).trim();
+					pathParameterNames.add(parameterName);
+				}
+			}
+		}
+		return pathParameterNames;
 	}
 	
 	public List<ParameterExt> getRouteParameters() {
