@@ -134,7 +134,13 @@ class GenerateReverseRoutes {
 						UriBuilder result = new UriBuilder().setPath(path());
 						«FOR routeParameter: methodHandler.routeParameters»
 							«IF !methodHandler.pathParameterNames.contains(routeParameter.name)»
-								«route.actionHandlerClassName».«routeParameter.binderName».bindToUrl(«route.actionHandlerClassName».«routeParameter.bindingInfoName», «routeParameter.name», result);
+								«IF !routeParameter.primitive»
+									if («routeParameter.name»!=null) {
+										«route.actionHandlerClassName».«routeParameter.binderName».bindToUrl(«route.actionHandlerClassName».«routeParameter.bindingInfoName», «routeParameter.name», result);
+									}
+								«ELSE»
+									«route.actionHandlerClassName».«routeParameter.binderName».bindToUrl(«route.actionHandlerClassName».«routeParameter.bindingInfoName», «routeParameter.name», result);
+								«ENDIF»
 							«ENDIF»
 						«ENDFOR»
 						return result.toString();
