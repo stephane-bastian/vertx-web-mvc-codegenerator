@@ -4,3 +4,10 @@
 /.GenerateRegisterRoutesSecurity.xtendbin
 /GenerateRegisterRoutes.java
 /GenerateRegisterRoutesSecurity.java
+/.CodegenDslGenerator.java._trace
+/.CodegenDslGenerator.xtendbin
+/.GenerateReverseRoutes.java._trace
+/.GenerateReverseRoutes.xtendbin
+/.RouterDslGenerator.java._trace
+/CodegenDslGenerator.java
+/GenerateReverseRoutes.java

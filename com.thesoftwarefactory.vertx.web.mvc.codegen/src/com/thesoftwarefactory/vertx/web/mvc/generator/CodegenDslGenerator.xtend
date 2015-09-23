@@ -18,16 +18,14 @@ import com.thesoftwarefactory.vertx.web.mvc.codegenDsl.Model
 class CodegenDslGenerator implements IGenerator {
 
 	@Inject JvmTypeReferenceBuilder.Factory typeRefBuilderFactory
-	@Inject extension GenerateRoutes generateRoutes
+	@Inject extension GenerateReverseRoutes generateReverseRoutes
 	@Inject extension GenerateRegisterRoutes generateRegisterRoutes
-	@Inject extension GenerateRegisterRoutesSecurity generateRegisterRoutesSecurity
 	
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 		val model = resource.contents.head as Model;
 		val JvmTypeReferenceBuilder typeReferenceBuilder = typeRefBuilderFactory.create(resource.resourceSet);
 
-		generateRoutes.generate(typeReferenceBuilder, model, fsa)
+		generateReverseRoutes.generate(typeReferenceBuilder, model, fsa)
 		generateRegisterRoutes.generate(resource, fsa)
-		generateRegisterRoutesSecurity.generate(resource, fsa)
 	}
 }

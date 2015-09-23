@@ -8,7 +8,7 @@ import com.thesoftwarefactory.vertx.web.mvc.codegenDsl.Model
 import com.thesoftwarefactory.vertx.web.mvc.codegenDsl.Route
 import com.thesoftwarefactory.vertx.web.mvc.generator.RouteMethodHandler.RouteType
 
-class GenerateRoutes {
+class GenerateReverseRoutes {
 	
 	def void generate(JvmTypeReferenceBuilder typeReferenceBuilder, String routeHandlerClassname, Collection<Route> routes, IFileSystemAccess fsa) {
 		val routeClassName = "routes." + routeHandlerClassname
